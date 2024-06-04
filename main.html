@@ -6,27 +6,6 @@
     <title>TimeCracker - 메인 페이지</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="main.css">
-    <style>
-        .dropdown {
-            display: inline-block;
-            position: relative;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: white;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .dropdown span a {
-            color: white;
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -80,30 +59,28 @@
         </div>
     </footer>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const pages = document.querySelectorAll('.page');
+        const pages = document.querySelectorAll('.page');
 
-            pages.forEach(page => {
-                page.addEventListener('click', () => {
-                    pages.forEach(p => {
-                        if (p !== page) {
-                            p.classList.remove('expanded');
-                        }
-                    });
-                    page.classList.toggle('expanded');
-                });
-            });
-
-            document.querySelectorAll('.arrow').forEach(arrow => {
-                arrow.addEventListener('click', event => {
-                    event.stopPropagation();
-                    const currentPage = event.target.parentNode;
-                    const nextPage = arrow.classList.contains('left') ? currentPage.previousElementSibling : currentPage.nextElementSibling;
-                    if (nextPage) {
-                        currentPage.classList.remove('expanded');
-                        nextPage.classList.add('expanded');
+        pages.forEach(page => {
+            page.addEventListener('click', () => {
+                pages.forEach(p => {
+                    if (p !== page) {
+                        p.classList.remove('expanded');
                     }
                 });
+                page.classList.toggle('expanded');
+            });
+        });
+
+        document.querySelectorAll('.arrow').forEach(arrow => {
+            arrow.addEventListener('click', event => {
+                event.stopPropagation();
+                const currentPage = event.target.parentNode;
+                const nextPage = arrow.classList.contains('left') ? currentPage.previousElementSibling : currentPage.nextElementSibling;
+                if (nextPage) {
+                    currentPage.classList.remove('expanded');
+                    nextPage.classList.add('expanded');
+                }
             });
         });
     </script>
