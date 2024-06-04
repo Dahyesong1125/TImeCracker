@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background-color: #211f3d; /* 몽환적이고 우주적인 색상 */
+    background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%); /* 배경 이미지 */
+    color: white;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    text-align: center;
+}
+
+.header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.header p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.terms {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+}
+
+.terms h2 {
+    margin-bottom: 10px;
+}
+
+.consent, .optional-consent {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.consent input, .optional-consent input {
+    margin-right: 10px;
+}
+
+.consent button {
+    margin-left: 10px;
+    padding: 10px 20px;
+    background-color: #555;
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.consent button:disabled {
+    background-color: #777;
+    cursor: not-allowed;
+}
+
+.footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+

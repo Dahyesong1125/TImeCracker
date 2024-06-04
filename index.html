@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeCracker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+        <h1>TimeCracker</h1>
+        </header>
+        <main class="main-content">
+            <section class="terms">
+                <h2>이용약관</h2>
+                <p>사이트 이용에 대한 규칙과 조건</p>
+                <p>사용자의 권리와 책임에 대한 정보</p>
+                            <div class="consent">
+                <input type="checkbox" id="agree">
+                <label for="agree">이용약관에 동의합니다</label>
+                <button id="consent-button">동의합니다</button>
+            </div>
+            <div class="optional-consent">
+                <input type="checkbox" id="optional-consent">
+                <label for="optional-consent">마케팅 정보 수신 동의</label>
+            </div>
+
+        </section>
+        </main>
+    </div>
+    <script>
+        // Ensure consent button is only enabled when terms are agreed
+        const consentButton = document.getElementById('consent-button');
+        const agreeCheckbox = document.getElementById('agree');
+
+        agreeCheckbox.addEventListener('change', function() {
+            consentButton.disabled = !agreeCheckbox.checked;
+        });
+
+        // Redirect to main page on consent
+        consentButton.addEventListener('click', function() {
+            if (agreeCheckbox.checked) {
+                window.location.href = 'main.html';
+            }
+        });
+
+        // Initialize button state
+        consentButton.disabled = true;
+    </script>
+</body>
+</html>
