@@ -80,29 +80,30 @@
         </div>
     </footer>
     <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        const pages = document.querySelectorAll('.page');
+        document.addEventListener("DOMContentLoaded", () => {
+            const pages = document.querySelectorAll('.page');
 
-        pages.forEach(page => {
-            page.addEventListener('click', () => {
-                pages.forEach(p => {
-                    if (p !== page) {
-                        p.classList.remove('expanded');
+            pages.forEach(page => {
+                page.addEventListener('click', () => {
+                    pages.forEach(p => {
+                        if (p !== page) {
+                            p.classList.remove('expanded');
+                        }
+                    });
+                    page.classList.toggle('expanded');
+                });
+            });
+
+            document.querySelectorAll('.arrow').forEach(arrow => {
+                arrow.addEventListener('click', event => {
+                    event.stopPropagation();
+                    const currentPage = event.target.parentNode;
+                    const nextPage = arrow.classList.contains('left') ? currentPage.previousElementSibling : currentPage.nextElementSibling;
+                    if (nextPage) {
+                        currentPage.classList.remove('expanded');
+                        nextPage.classList.add('expanded');
                     }
                 });
-                page.classList.toggle('expanded');
-            });
-        });
-
-        document.querySelectorAll('.arrow').forEach(arrow => {
-            arrow.addEventListener('click', event => {
-                event.stopPropagation();
-                const currentPage = event.target.parentNode;
-                const nextPage = arrow.classList.contains('left') ? currentPage.previousElementSibling : currentPage.nextElementSibling;
-                if (nextPage) {
-                    currentPage.classList.remove('expanded');
-                    nextPage.classList.add('expanded');
-                }
             });
         });
     </script>
