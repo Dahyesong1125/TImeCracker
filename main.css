@@ -162,16 +162,77 @@ footer .dropdown:hover i {
     animation: rotate 1.0s;
 }
 
-/* @font-face 규칙을 사용하여 폰트를 불러오기 */
 @font-face {
-    font-family: 'BMHANNAPro';
-    src: url('Fonts/MyCustomFont.woff/woff/BMHANNAPro.woff') format('woff');
+    font-family: 'BMDOHYEON';
+    src: url('Fonts/MyCustomFont.woff/otf/BMDOHYEON_otf.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
 
-/* 한글 텍스트에만 폰트를 적용하기 위한 CSS */
+@font-face {
+    font-family: 'BMEULJIRO';
+    src: url('Fonts/MyCustomFont.woff/otf/BMEULJIRO.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BMEuljiro10yearslaterOTF';
+    src: url('Fonts/MyCustomFont.woff/otf/BMEuljiro10yearslaterOTF.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BMEuljirooraeOTF';
+    src: url('Fonts/MyCustomFont.woff/otf/BMEuljirooraeOTF.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BMHANNAAir';
+    src: url('Fonts/MyCustomFont.woff/otf/BMHANNAAir_otf.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BMHANNAPro';
+    src: url('Fonts/MyCustomFont.woff/otf/BMHANNAProOTF.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BMHANNA_11yrs';
+    src: url('Fonts/MyCustomFont.woff/otf/BMHANNA_11yrs_otf.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BMJUA';
+    src: url('Fonts/MyCustomFont.woff/otf/BMJUA_otf.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BMKIRANGHAERANG';
+    src: url('Fonts/MyCustomFont.woff/otf/BMKIRANGHAERANG-OTF.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BMYEONSUNG';
+    src: url('Fonts/MyCustomFont.woff/otf/BMYEONSUNG_otf.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 폰트를 한글 텍스트에 적용하기 위한 클래스 */
 .korean-text {
     font-family: 'BMHANNAPro', sans-serif;
 }
-
