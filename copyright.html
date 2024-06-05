@@ -1,37 +1,120 @@
-<!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>저작권 정보</title>
+    <title>자료 출처</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="start.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #211f3d;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            flex: 1;
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .content {
+            background-color: black;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            max-height: 70vh; /* Set maximum height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        }
+        .content::-webkit-scrollbar { 
+            display: none; /* Chrome, Safari and Opera */
+        }
+        .content h2 {
+            font-size: 24px;
+            border-bottom: 2px solid #001f3f;
+            padding-bottom: 10px;
+            color: white;
+        }
+        .content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 10px 0;
+            color: white;
+        }
+        .source {
+            margin-bottom: 20px;
+        }
+        .source strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: white;
+        }
+        .source a {
+            color: #001f3f;
+            text-decoration: none;
+        }
+        .source a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        footer .dropdown {
+            margin-right: 20px;
+            display: inline-block;
+        }  
+
+        footer .dropdown a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer .dropdown i {
+            margin-right: 5px;
+        }
+        
+        footer .dropdown:hover i {
+            animation: rotate 1.0s;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <header class="header">
-            <h1 class="korean-text">저작권 정보</h1>
-        </header>
-        <main class="main-content">
-            <section class="terms">
-                <section class="copyright">
-                    <h2 class="korean-text">저작권 정보</h2>
-                    <p class="korean-text">이 페이지에는 웹사이트의 저작권 정보가 포함되어 있습니다. 모든 콘텐츠는 저작권 보호를 받으며, 무단 복제를 금합니다.</p>
-                </section>
-                <div class="back-button">
-                    <button onclick="goBack()" class="styled-button korean-text"><i class="fas fa-arrow-left"></i> 이전</button>
-                </div>
-            </section>
-        </main>
-        <footer class="footer">
-            <a href="main.html" class="korean-text"><i class="fas fa-home"></i> 홈으로 돌아가기</a>
-        </footer>
+        <div class="content">
+            <h2>자료 출처 목록</h2>
+            
+            <div class="source">
+                <strong>1. 앨범사진:</strong>
+                <p>BUGS!(https://music.bugs.co.kr/), 1980 모든 앨범 사진들, https://music.bugs.co.kr/musicpd/albumview/34202, 2024/05/30</p>
+
+                <p>본 자료들은 교육 및 단순 정보 제공 목적으로 사용되었습니다.</p>
+            </div>
+            <!-- 추가적인 source 항목들 -->
+            
+        </div>
     </div>
 
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+<footer>
+    <div class="dropdown">
+        <a href="main.html"><i class="fas fa-home"></i>홈으로 돌아가기</a>
+    </div>
+    <div class="dropdown">
+        <a href="faq.html"><i class="fas fa-question-circle"></i>FAQ 및 연락처</a>
+    </div>
+    <div class="dropdown">
+        <a href="1980.html"><i class="fas fa-Tshirt"></i>Fashion</a>
+      </div>
+</footer>
 </body>
 </html>
