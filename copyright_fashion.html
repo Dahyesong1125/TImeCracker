@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자료 출처</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="start.css">
+    <link rel="stylesheet" href="index.css">
     <style>
         body {
             margin: 0;
@@ -109,12 +109,19 @@
     <div class="dropdown">
         <a href="main.html"><i class="fas fa-home"></i>홈으로 돌아가기</a>
     </div>
+    <div class="back-button">
+    <button onclick="goBack()" class="styled-button korean-text"><i class="fas fa-arrow-left"></i> 이전</button>
+    </div>
     <div class="dropdown">
         <a href="faq.html"><i class="fas fa-question-circle"></i>FAQ 및 연락처</a>
     </div>
-    <div class="dropdown">
-        <a href="1980.html"><i class="fas fa-Tshirt"></i>Fashion</a>
-      </div>
+
 </footer>
 </body>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 </html>
