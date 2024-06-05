@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TimeCracker-music-2000</title>
+  <title>TimeCracker-history</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
@@ -29,8 +29,6 @@
       align-items: center;
       justify-content: center;
     }
-
-    a { text-decoration:none }
 
     .dropdown {
       position: relative;
@@ -97,53 +95,129 @@
       margin: 0 10px;
     }
 
-    .body-container {
+    .squares-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      gap: 58px;
+      justify-content: center;
+      align-items: center;
+      height: calc(100% - 104px); /* Adjust height considering header, nav, and history-section */
+      padding: 10px;
+      margin: 0 auto; /* Center the container */
+      max-width: 1000px; /* Optionally, set a max-width to control the container size */
+    }
+
+    .square {
+      width: 280px; /* Reduced size */
+      height: 280px; /* Reduced size */
+      background-color: #333;
+      transition: transform 0.3s;
       display: flex;
-      height: 100%;
-    }
-
-    .page {
-      flex: 1;
-      overflow: hidden;
-      transition: flex-grow 0.5s;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .page.expanded {
-      flex-grow: 10;
-    }
-
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 24px;
+      justify-content: center;
+      align-items: center;
       color: white;
+      font-size: 24px;
       cursor: pointer;
-      z-index: 2;
+      aspect-ratio: 1 / 1; /* Ensure squares remain squares */
     }
 
-    .arrow.left {
-      left: 10px;
+    .square:hover {
+      transform: translateY(-10px);
     }
 
-    .arrow.right {
-      right: 10px;
-    }
-
-    .page-content {
+    .expanded {
       display: none;
+      position: fixed;
+      top: 165px; /* Adjusted top to leave space for header */
+      left: 0;
+      width: 100%;
+      height: calc(100% - 165px); /* Adjust height to leave space for header */
+      background-color: rgba(255, 255, 255, 0.9);
+      color: rgb(0, 0, 0);
+      justify-content: center;
+      align-items: center;
+      font-size: 48px;
+      z-index: 10;
     }
 
-    .page.expanded .page-content {
-      display: block;
+    .expanded-content {
+      display: flex;
+      flex-direction: row;
+      width: 80%;
+      height: 80%;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
     }
 
-    .page-content p {
-      margin: 10px 0;
-      font-size: 20px;
+    .expanded-image, .expanded-audio {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
     }
+
+    .expanded-image img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 10px;
+    }
+
+    .expanded-audio {
+      flex-direction: column;
+      align-items: center; /* Center align items */
+    }
+
+    .lyrics-box {
+      width: 80%;
+      height: 300px; /* Adjusted height for larger box */
+      overflow-y: auto;
+      background-color: #ffffff;
+      color: rgb(0, 0, 0);
+      padding: 10px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      -ms-overflow-style: none;
+      font-size: 25px;
+      line-height: 0.3;
+      text-align : center;
+      font-weight : normal;
+    }
+    .lyrics-box::-webkit-scrollbar{
+      display:none;
+    }
+    .song-title {
+      width: 80%;
+      padding: 10px;
+      text-align: center;
+      font-size: 24px;
+      color: black;
+      background-color: rgba(255, 255, 255, 0.7);
+      border-radius: 10px;
+      margin-bottom: 10px;
+      font-weight:bolder;
+    }
+
+    .expanded-audio audio {
+      width: 85%;
+    }
+
+    .expanded-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 36px;
+      cursor: pointer;
+    }
+    .song-title{
+      text-align:left;
+    }
+
+
+    a { text-decoration:none }
+   
 
     .video-container {
       position: relative;
@@ -185,44 +259,46 @@
     footer .dropdown:hover i {
       animation: rotate 1.0s;
     }
+
   </style>
 </head>
 <body link="white" vlink="white">
 
 <header>
   <h1><a href="main.html">TimeCracker</a></h1>
+
 </header> 
 <nav>
-        <div class="dropdown">
-            <span><i class="fas fa-tshirt"></i>Fashion</span>
-            <div class="dropdown-content">
-                <a href="fashion_1980.html">1980년</a>
-                <a href="fashion_1990.html">1990년</a>
-                <a href="fashion_2000.html">2000년</a>
-                <a href="fashion_2010.html">2010년</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <span><i class="fas fa-music"></i>Music</span>
-            <div class="dropdown-content">
-                <a href="music_1980.html">1980년</a>
-                <a href="music_1990.html">1990년</a>
-                <a href="music_2000.html">2000년</a>
-                <a href="music_2010.html">2010년</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <span><i class="fas fa-landmark"></i>History</span>
-            <div class="dropdown-content">
-                <a href="history_1980.html">1980년</a>
-                <a href="history_1990.html">1990년</a>
-                <a href="history_2000.html">2000년</a>
-                <a href="history_2010.html">2010년</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <span><i class="fas fa-globe"></i><a href="https://mz-jfk4-staging.b12sites.com/index" style="color: white; text-decoration: none;">MZ</a></span>
-        </div>
+  <div class="dropdown">
+    <span><i class="fas fa-tshirt"></i>Fashion</span>
+    <div class="dropdown-content">
+      <a href="#">1980년</a>
+      <a href="#">1990년</a>
+      <a href="#">2000년</a>
+      <a href="#">2010년</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <span><i class="fas fa-music"></i>Music</span>
+    <div class="dropdown-content">
+      <a href="1980.html">1980년</a>
+      <a href="1990.html">1990년</a>
+      <a href="2000.html">2000년</a>
+      <a href="2010.html">2010년</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <span><i class="fas fa-landmark"></i>History</span>
+    <div class="dropdown-content">
+      <a href="#">1980년</a>
+      <a href="#">1990년</a>
+      <a href="#">2000년</a>
+      <a href="#">2010년</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <span><i class="fas fa-globe"></i>MZ</span>
+  </div>
 </nav>
 <div class="history-section"> 
   <div>
@@ -232,8 +308,816 @@
     <span>2000년</span> 
   </div>
 </div>
-<div class="body-container">
+
+<div class="squares-container">
+  <div class="square" data-target="expanded1">
+    <img src="media/2000/2NE1_in the club.jpg" width="280" height="280" alt="앨범">
+  </div>
+  <div class="square" data-target="expanded2">
+    <img src="media/2000/bigbang_하루하루.jpg" width="280" height="280" alt="앨범">
+  </div>
+  <div class="square" data-target="expanded3">
+    <img src="media/2000/G.D_Heartbreaker.jpg" width="280" height="280" alt="앨범">
+  </div>
+  <div class="square" data-target="expanded4">
+    <img src="media/2000/다비치_8282.jpg" width="280" height="280" alt="앨범">
+  </div>
+  <div class="square" data-target="expanded5">
+    <img src="media/2000/브라운아이드걸스_아브라카다브라.jpg" width="280" height="280" alt="앨범">
+  </div>
+  <div class="square" data-target="expanded6">
+    <img src="media/2000/에이트_심장이없어.jpg" width="280" height="280" alt="앨범">
+  </div>
+  <div class="square" data-target="expanded7">
+    <img src="media/2000/윤하_비밀번호486.jpg" width="280" height="280" alt="앨범">
+  </div>
+  <div class="square" data-target="expanded8">
+    <img src="media/2000/아웃사이더_외톨이.jpg" width="280" height="280" alt="앨범">
+  </div>
 </div>
+
+<div class="expanded" id="expanded1">
+  <div class="expanded-content">
+    <div class="expanded-image">
+      <img src="./media/2000/2NE1-removebg-preview.png" alt="앨범 이미지">
+    </div>
+    <div class="expanded-audio">
+      <div class="lyrics-box">
+        <p>
+          <h6>In The Club - 03:48</h6>
+          <h6>너의 향기를 지우려고 해</h6>
+          <h6>너의 손길 이제 잊으려고 해</h6>
+          <h6>왜 꼭 그래야만 했어</h6>
+          <h6>믿을 수가 없어</h6>
+          <h6>결국 그런 남자였어</h6>
+          <br>
+        </p>
+        <p>
+          <h6>나의 생활 이제 찾으려고 해</h6>
+          <h6>나의 친구 이제 만나려고 해</h6> 
+          <h6>뻔한 거짓말을 했어</h6>
+          <h6>난 또 바보 처럼</h6>
+          <h6>아닐거라 안심했어</h6>
+          <br>
+        </p>
+        <p>
+          <h6>니가 다짐했던 약속 다 가져가줄래</h6>
+          <h6>사소한 습관까지 작은 기억까지 모두 태울테니까</h6>
+          <h6>내 안에 살아있는 널 잠재울거야</h6>
+          <h6>니가 여태 알던 내 모습은 이제 없는 거야</h6>
+          <br>
+        </p>
+        <p>
+          <h6>in the club 오늘밤 그에게</h6>
+          <h6>in the club 내 모든 걸 줄래</h6>
+          <h6>in the club 니가 그녀와 그랬던 것 처럼</h6>
+          <h6>in the club 쉽게 사랑할래</h6>
+          <br>
+        </p>
+        <p>
+          <h6>in the club 오늘밤 그에게</h6>
+          <h6>in the club 내 모든 걸 줄래</h6>
+          <h6>in the club 내 아픈 상처까지 안아도</h6>
+          <h6>오늘밤만은 너를 잊을 수 있도록</h6>
+          <br>
+        </p>
+        <p>
+          <h6>화려한 조명 속에 춤추는 모습이 보여</h6>
+          <h6>처음 본 여자 허리에 너의 손을 올려</h6>
+          <h6>시끄러운 클럽 난 더 크게 널 불러</h6>
+          <h6>아무것도 들리지도 보이지 않는 너</h6>
+          <br>
+        </p>
+        <p>
+          <h6>오늘 밤은 나도 너를 잠시동안 잊을래</h6>
+          <h6>내 책상 위에 너와의 사진 다 지울래</h6>
+          <h6>지긋지긋해 너에게 벗어나고 싶지만 왜</h6>
+          <h6>자꾸 널 기억하는지 i'm not okay</h6>
+          <br>
+        </p>
+        <p>
+          <h6>니가 다짐했던 약속 다 가져가줄래</h6>
+          <h6>사소한 습관까지 작은 기억까지 모두 태울테니까</h6>
+          <h6>내 안에 살아있는 널 잠재울거야</h6>
+          <h6>니가 여태 알던 내 모습은 이제 없는 거야</h6>
+          <br>
+        </p>
+        <p>
+          <h6>in the club 오늘밤 그에게</h6>
+          <h6>in the club 내 모든 걸 줄래</h6>
+          <h6>in the club 니가 그녀와 그랬던 것 처럼</h6>
+          <h6>in the club 쉽게 사랑할래</h6>
+          <br>
+        </p>
+        <p>
+          <h6>in the club 오늘밤 그에게</h6>
+          <h6>in the club 내 모든 걸 줄래</h6>
+          <h6>in the club 내 아픈 상처까지 안아도</h6>
+          <h6>오늘밤만은 너를 잊을 수 있도록</h6>
+          <br>
+        </p>
+        <p>
+          <h6>이 밤이 다 지나고나면 난</h6>
+          <h6>홀로 멍하니 남겨지겠지</h6>
+          <h6>바보같이 눈물을 흘리겠지</h6>
+          <br>
+        </p>
+        <p>
+          <h6>아직도 꿈 속에 니가 보여</h6>
+          <h6>이젠 널 놓겠어 다신 너도 나를 찾지말아</h6>
+          <br>
+        </p>
+        <p>
+          <h6>in the club 오늘밤 그에게</h6>
+          <h6>in the club 내 모든 걸 줄래</h6>
+          <h6>in the club 니가 그녀와 그랬던 것 처럼</h6>
+          <h6>in the club 쉽게 사랑할래</h6>
+          <br>
+        </p>
+        <p>
+          <h6>in the club 오늘밤 그에게</h6>
+          <h6>in the club 내 모든 걸 줄래</h6>
+          <h6>in the club 내 아픈 상처까지 안아도</h6>
+          <h6>오늘밤만은 너를 잊을 수 있도록</h6>
+          <br>
+        </p>
+      </div>
+      <div class="song-title">In The Club - 2NE1</div>
+      <audio controls>
+        <source src="media/mp3/2000/In the Club.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+        </audio>
+    </div>
+        <span class="expanded-close">×</span>
+       </div>
+        </div>
+        <div class="expanded" id="expanded2">
+          <div class="expanded-content">
+            <div class="expanded-image">
+              <img src="./media/2000/하루하루-removebg-preview.png" alt="앨범 이미지">
+            </div>
+            <div class="expanded-audio">
+              <div class="lyrics-box">
+                <p>
+                  <h6>떠나가</h6>
+                  <h6>Yeah</h6>
+                  <h6>Finally I realize</h6>
+                  <h6>That I'm nothing without you</h6>
+                  <h6>I was wrong forgive me</h6>
+                  <h6>Ah, ah, ah, ah</h6>
+                  <h6>Ah-ah-ah, ah, ah, ah, ah, ah</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>파도처럼 부숴진 내 맘</h6>
+                  <h6>바람처럼 흔들리는 내 맘</h6>
+                  <h6>연기처럼 사라진 내 사랑</h6>
+                  <h6>문신처럼 지워지지 않아</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>한숨만 땅이 꺼지라 쉬죠 (oh, oh, oh, oh, oh)</h6>
+                  <h6>가슴 속에 먼지만 쌓이죠 (say good bye)</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Yeah 네가 없인 단 하루도 못 살 것만 같았던 나</h6>
+                  <h6>생각과는 다르게도 그럭저럭 혼자 잘 살아</h6>
+                  <h6>보고 싶다고 불러봐도 넌 아무 대답 없잖아</h6>
+                  <h6>헛된 기대 걸어봐도 이젠 소용없잖아 (oh)</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>니 옆에 있는 그 사람이 뭔지, 혹시 널 울리진 않는지</h6>
+                  <h6>그대 내가 보이긴 하는지, 벌써 싹 다 잊었는지</h6>
+                  <h6>걱정돼 다가가기조차 말을 걸 수조차 없어 애태우고</h6>
+                  <h6>나 홀로 밤을 지새우죠, 수백 번 지워내죠</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>돌아보지 말고 떠나가라</h6>
+                  <h6>또 나를 찾지 말고 살아가라</h6>
+                  <h6>너를 사랑했기에 후회 없기에</h6>
+                  <h6>좋았던 기억만 가져가라</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>그럭저럭 참아볼 만해</h6>
+                  <h6>그럭저럭 견뎌낼 만해</h6>
+                  <h6>넌 그럴수록 행복해야 돼</h6>
+                  <h6>하루하루 무뎌져 가네</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Oh, girl, I cry, cry</h6>
+                  <h6>You're my all, say good bye</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>길을 걷다 너와 나 우리 마주친다 해도</h6>
+                  <h6>못 본 척하고서 그대로 가던 길 가줘</h6>
+                  <h6>자꾸만 옛 생각이 떠오르면 아마도</h6>
+                  <h6>나도 몰래 그댈 찾아갈지도 몰라</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>넌 늘 그 사람과 행복하게 (yeah)</h6>
+                  <h6>넌 늘 내가 다른 맘 안 먹게 (right)</h6>
+                  <h6>넌 늘 작은 미련도 안 남게끔 (oh)</h6>
+                  <h6>잘 지내줘 나 보란 듯이</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>넌 늘 저 하늘같이 하얗게</h6>
+                  <h6>뜬구름과도 같이 새파랗게</h6>
+                  <h6>넌 늘 그래 그렇게 웃어줘</h6>
+                  <h6>아무 일 없듯이</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>돌아보지 말고 떠나가라</h6>
+                  <h6>또 나를 찾지 말고 살아가라</h6>
+                  <h6>너를 사랑했기에 후회 없기에</h6>
+                  <h6>좋았던 기억만 가져가라</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>그럭저럭 참아볼 만해</h6>
+                  <h6>그럭저럭 견뎌낼 만해</h6>
+                  <h6>넌 그럴수록 행복해야 돼</h6>
+                  <h6>하루하루 무뎌져 가네-eh-eh-eh</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>나를 떠나서 맘 편해지길</h6>
+                  <h6>나를 잊고서 살아가 줘</h6>
+                  <h6>그 눈물은 다 마를 테니 yeah</h6>
+                  <h6>하루하루 지나면</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>차라리 만나지 않았더라면 덜 아플 텐데 ooh</h6>
+                  <h6>영원히 함께하자던 그 약속 이젠</h6>
+                  <h6>추억에 묻어두길 바래 baby</h6>
+                  <h6>널 위해 기도해 (돌아보지 말고 떠나가라)</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>또 나를 찾지 말고 살아가라 (날 찾지 말고서)</h6>
+                  <h6>너를 사랑했기에 후회 없기에</h6>
+                  <h6>좋았던 기억만 가져가라 (내 기억까지도)</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>그럭저럭 참아볼 만해 (참아볼 만해)</h6>
+                  <h6>그럭저럭 견뎌낼 만해 (난 견뎌낼 만해)</h6>
+                  <h6>넌 그럴수록 행복해야 돼 (oh)</h6>
+                  <h6>하루하루 무뎌져 가네-eh-eh-eh</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Oh, girl, I cry, cry</h6>
+                  <h6>You're my all, say good bye-bye</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Oh, my love, don't lie, lie</h6>
+                  <h6>You're my heart, say good bye</h6>
+                  <br>
+                </p>
+              </div>
+              <div class="song-title">하루 하루 - BIGBANG</div>
+              <audio controls>
+                <source src="media/mp3/2000/BIGBANG  HARU HARU하루하루.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+            </div>
+            <span class="expanded-close">&times;</span>
+          </div>
+        </div>
+        <div class="expanded" id="expanded3">
+          <div class="expanded-content">
+            <div class="expanded-image">
+              <img src="./media/2000/GD-removebg-preview.png" alt="앨범 이미지">
+            </div>
+            <div class="expanded-audio">
+              <div class="lyrics-box">
+                <p>
+                  <h6>Flo rider</h6>
+                  <h6>YG family</h6>
+                  <h6>G Dragon! holla at him</h6>
+                  <h6>You're ma heartbreaker</h6>
+                  <h6>DJ YG (be right back)</h6>
+                  <h6>Let me take this over</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Hey 나도 어디 가서 꿀리지 않아</h6>
+                  <h6>사람 맘 갖고 저울질하지 마라</h6>
+                  <h6>더 말할 것 없어 너와 나 벌써</h6>
+                  <h6>떠나간 사랑인 줄 알면서 니 앞에서</h6>
+                  <h6>꿇은 무릎 회수 매 순간이 thats who i hate, you</h6>
+                  <h6>여기까지만 이제 안녕 또 안녕</h6>
+                  <h6>Flo flo flo rider and G G G Dragon</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>내가 아무리 잡아도 눈물을 보여도</h6>
+                  <h6>사랑한다는 거짓말은 참아줘</h6>
+                  <h6>돌아선 남자의 가슴은 냉 버려진 여자의 머리는 휑</h6>
+                  <h6>차가운 새벽 찬바람은 쌩</h6>
+                  <h6>It's over you know what i mean</h6>
+                  <h6>Low low low low low low low</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Your my heart heart heart heart heartbreaker</h6>
+                  <h6>내가 뭘 잘못했는지</h6>
+                  <h6>Your my heart heart heart heart heartbreaker</h6>
+                  <h6>No way no way</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>네가 날 떠나간대도</h6>
+                  <h6>난 인정 못 한다고 잘 사나 보자고</h6>
+                  <h6>Lovers and haters</h6>
+                  <h6>지긋 지긋지긋해 삐끗삐끗삐끗 해</h6>
+                  <h6>내 사랑이 비굴해?</h6>
+                  <h6>No way</h6>
+                  <h6>Flo rider</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Hey I know everybody ain't perfect</h6>
+                  <h6>Baby what did I do to deserve this</h6>
+                  <h6>No way, you're making me nervous</h6>
+                  <h6>I can't afford to be climbing your circus</h6>
+                  <h6>Like why did I open curtain</h6>
+                  <h6>Gave you my heart when I should've been certain</h6>
+                  <h6>Knew I was allergic, I need a surgeon</h6>
+                  <h6>Tryin' to be another person</h6>
+                  <h6>This wasn't part of the plan</h6>
+                  <h6>Leaving each other I don't understand</h6>
+                  <h6>More than your lover, your permanent man</h6>
+                  <h6>Won't be another that can do what I can</h6>
+                  <h6>Right on the double I gave you my hand</h6>
+                  <h6>But for the trouble why do it again</h6>
+                  <h6>I cannot juggle just being your friend</h6>
+                  <h6>After this trouble my heart needs a mend</h6>
+                  <h6>(a mend a mend a mend)</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Your my heart heart heart heart heartbreaker</h6>
+                  <h6>내가 뭘 잘못했는지</h6>
+                  <h6>Your my heart heart heart heart heartbreaker</h6>
+                  <h6>No way no way</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>네가 날 떠나간대도</h6>
+                  <h6>난 인정 못 한다고 잘 사나 보자고</h6>
+                  <h6>Lovers and haters</h6>
+                  <h6>지긋 지긋지긋해 삐끗삐끗삐끗 해</h6>
+                  <h6>내 사랑을 비굴해 (talk to me, girl)</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>I'll still still be there (꺼진 네 전화기에)</h6>
+                  <h6>I'll still still be there (네 집 앞 편지함에)</h6>
+                  <h6>난 아직도 그댈 (이젠 남이라 해도)</h6>
+                  <h6>I will still be there</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Baby 그대 없이 죽을 것만 같아</h6>
+                  <h6>네 앞에 보인 내 모습은 내가 아닌걸</h6>
+                  <h6>미안해 나를 위해 다시 한번만</h6>
+                  <h6>Take my hand 널 기다리고 있는데</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Your my heart heart heart heart heartbreaker</h6>
+                  <h6>내가 뭘 잘못했는지</h6>
+                  <h6>Your my heart heart heart heart heartbreaker</h6>
+                  <h6>No way no way</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Your my heart heart</h6>
+                  <h6>Heartbreaker</h6>
+                  <h6>Your my heart heart heart</h6>
+                  <h6>Breaker breaker</h6>
+                  <h6>H(H)</h6>
+                  <h6>E(E)</h6>
+                  <h6>A(A)</h6>
+                  <h6>R(R)</h6>
+                  <h6>T(T)</h6>
+                  <h6>Breaker</h6>
+                  <h6>No way</h6>
+                  <h6>I'm out</h6>
+                </p>
+              </div>
+              <div class="song-title">Heartbreaker - G.D</div>
+              <audio controls>
+                <source src="media/mp3/2000/GDRAGON  HEARTBREAKER.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+            </div>
+            <span class="expanded-close">&times;</span>
+          </div>
+        </div>
+        <div class="expanded" id="expanded4">
+          <div class="expanded-content">
+            <div class="expanded-image">
+              <img src="./media/2000/다비치.PNG" alt="앨범 이미지">
+            </div>
+            <div class="expanded-audio">
+              <div class="lyrics-box">
+                <p>
+                  <h6>만나지 말잔 내 말 연락도 말란 내 말</h6>
+                  <h6>너 진짜 그대로 할 거니 그게 아닌데</h6>
+                  <h6>이대로 끝일까 봐 널 영영 잃을까 봐</h6>
+                  <h6>점점 더 맘이 불안해져 너무 슬퍼져</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>정이 뭔지 밉다가도 그리워 너 없인 못 살아</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Give me a call baby baby 지금 바로 전화 줘</h6>
+                  <h6>Give me a call baby baby 매일 널 기다려</h6>
+                  <h6>사랑한다고 사랑한다고 문자라도 남겨줘 Oh oh oh</h6>
+                  <h6>날 울리지 마 너</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>어디서 뭘 하길래 얼마나 바쁘길래</h6>
+                  <h6>혹시 너 일부러 안 받니 난 줄 알면서</h6>
+                  <h6>벌써 날 잊은 거니 마음을 접은 거니</h6>
+                  <h6>날 두고 네가 설마 설마 자꾸 눈물 나</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>정이 뭔지 사랑보다 무서워 지우기 힘들어</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Give me a call baby baby 지금 바로 전화 줘</h6>
+                  <h6>Give me a call baby baby 매일 널 기다려</h6>
+                  <h6>사랑한다고 사랑한다고 문자라도 남겨줘 Oh oh oh</h6>
+                  <h6>날 울리지 마 너</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Call me Tell me Hold me 아니라고</h6>
+                  <h6>Call me Tell me Hold me 가면 안 돼</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Give me a call baby baby 다시 나를 찾아줘</h6>
+                  <h6>Give me a call baby baby 할 말이 있는 걸</h6>
+                  <h6>너를 사랑해 너무 사랑해 너를 향해 소리쳐 Oh oh oh</h6>
+                  <h6>널 기다릴게 너</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Call me Tell me Hold me 아니라고</h6>
+                  <h6>Call me Tell me Hold me 돌아와 줘</h6>
+                </p>
+              </div>
+              <div class="song-title">8282 - 다비치</div>
+              <audio controls>
+                <source src="media/mp3/2000/다비치  8282.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+            </div>
+            <span class="expanded-close">&times;</span>
+          </div>
+        </div>
+        <div class="expanded" id="expanded5">
+          <div class="expanded-content">
+            <div class="expanded-image">
+              <img src="./media/2000/브라운아이드걸스-removebg-preview.png" alt="앨범 이미지">
+            </div>
+            <div class="expanded-audio">
+              <div class="lyrics-box">
+                <p>
+                  <h6>이러다 미쳐 내가, 여리여리 착하던 그런 내가</h6>
+                  <h6>너 때문에 돌아 내가, 독한 나로 변해 내가</h6>
+                  <h6>널 닮은 인형에다 주문을 또 걸어 내가</h6>
+                  <h6>그녀와 찢어져 달라고, 고</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Every night I'll be with you</h6>
+                  <h6>Do you love her? Do you love her?</h6>
+                  <h6>매일 너의 꿈속에</h6>
+                  <h6>Do you love me? Do you love me?</h6>
+                  <h6>Bring, bring 너를 내게 가져다줘</h6>
+                  <h6>뭐라도 난 하겠어, 더한 것도 하겠어</h6>
+                  <h6>빙빙 도는 나의 fantasy에</h6>
+                  <h6>모든 걸 걸겠어, 널 내가 내가 갖겠어</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>못 참아 더는 내가, 이러다가 정신을 놓쳐 내가</h6>
+                  <h6>도대체 왜 너란 애가 내 마음에 박혀 니가</h6>
+                  <h6>찢겨진 사진에다 주문을 또 걸어 내가</h6>
+                  <h6>그녀가 떨어져 달라고, 고</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>Every night I'll be with you</h6>
+                  <h6>Do you love her? Do you love her?</h6>
+                  <h6>매일 너의 꿈속에</h6>
+                  <h6>Do you love me? Do you love me?</h6>
+                  <h6>Bring, bring 너를 내게 가져다줘</h6>
+                  <h6>뭐라도 난 하겠어, 더한 것도 하겠어</h6>
+                  <h6>빙빙 도는 나의 fantasy에</h6>
+                  <h6>모든 걸 걸겠어, 널 내가 내가 갖겠어</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>I'm in the voodoo lsland 널 되찾기 위한 plan</h6>
+                  <h6>매일같이 이렇게 날 울린 널 향한 마지막 step</h6>
+                  <h6>Yeah, yeah 그녀의 손을 잡고 그녀와 입을 맞추고</h6>
+                  <h6>그런 너를 상상조차 하기 싫어</h6>
+                  <h6>이 주문에 염원을 실어</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>랄랄랄랄랄라-랄랄랄라</h6>
+                  <h6>랄랄랄랄랄라-랄랄랄라</h6>
+                  <h6>랄랄랄라, 랄랄랄라</h6>
+                  <h6>아브라카다브라, 다 이뤄져라</h6>
+                  <h6>Let's go</h6>
+                  <h6>Uh, uh-uh-uh</h6>
+                  <h6>Haha, ha-ha-ha</h6>
+                  <h6>Hey 네게 주문을 걸어 봐</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>I'm like a supervisor</h6>
+                  <h6>널 통제하는 Kaiser</h6>
+                  <h6>내게서 벗어날 수 없어 내게</h6>
+                  <h6>Bring, bring 너를 내게 가져다줘</h6>
+                  <h6>뭐라도 난 하겠어, 더한 것도 하겠어</h6>
+                  <h6>빙빙 도는 나의 fantasy에</h6>
+                  <h6>모든 걸 걸겠어, 널 내가 내가 갖겠어</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>이러다 미쳐 내가, 여리여리 착하던 그런 내가</h6>
+                  <h6>너 때문에 돌아 내가, 독한 나로 변해 내가</h6>
+                  <h6>Cool한 척하는 내가 놀라워라, 이런 내가</h6>
+                  <h6>아닌 척 널 만나러 가 또, 또</h6>
+                </p>
+              </div>
+              <div class="song-title">Abracadabra - 브라운아이드걸스</div>
+              <audio controls>
+                <source src="media/mp3/2000/Brown Eyed Girls Abracadabra.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+            </div>
+            <span class="expanded-close">&times;</span>
+          </div>
+        </div>
+        <div class="expanded" id="expanded6">
+          <div class="expanded-content">
+            <div class="expanded-image">
+              <img src="./media/2000/에이트.PNG" alt="앨범 이미지">
+            </div>
+            <div class="expanded-audio">
+              <div class="lyrics-box">
+                <p>
+                  <h6>아프다고 말하면 정말 아플 것 같아서</h6>
+                  <h6>슬프다고 말하면 눈물이 날 것 같아서</h6>
+                  <h6>그냥 웃지 그냥 웃지 그냥 웃지</h6>
+                  <h6>그런데 사람들이 왜 우냐고 물어</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>매일을 울다가 웃다가 울다가 웃는걸 반복해</h6>
+                  <h6>나 왜 이러는데</h6>
+                  <h6>술이 술인지 밥인지도 모르는 채</h6>
+                  <h6>살아 이 정도 아픔은 통과 의례인 듯 해</h6>
+                  <h6>멍하니 종이에 나도 몰래</h6>
+                  <h6>니 이름만 적어 하루 웬 종일</h6>
+                  <h6>종이가 시커매지고서야 펜을 놔</h6>
+                  <h6>너 그리워 또 핸드폰을 들었다 놔</h6>
+                  <h6>눈물이 또 찾아와 너와의 이별이란</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>나는 심장이 없어 나는 심장이 없어</h6>
+                  <h6>그래서 아픈 걸 느낄리 없어</h6>
+                  <h6>매일 혼잣말을 해 내게 주문을 걸어</h6>
+                  <h6>그래도 자꾸 눈물이 나는 걸</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>아프다고 말하면 정말 아플 것 같아서</h6>
+                  <h6>슬프다고 말하면 눈물이 날 것 같아서</h6>
+                  <h6>그냥 웃지 그냥 웃지 그냥 웃지</h6>
+                  <h6>그런데 사람들이 왜 우냐고</h6>
+                  <h6>물어 이렇게 웃는데</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>니가 떠나고부터 난 바보가 된 것 같어</h6>
+                  <h6>i can't do 아무것도 죽어라</h6>
+                  <h6>방구석에 박혀 살어</h6>
+                  <h6>너 없인 할 일도 없는데 하룬 길어 너무 길어</h6>
+                  <h6>근데 뭐 그리 바뻐 널 외롭게 했어</h6>
+                  <h6>니가 쇼핑 가자 그럴 때</h6>
+                  <h6>친구와 술 한잔 마시는 건 그렇게</h6>
+                  <h6>쉬운데 왜 너한텐 못했을까</h6>
+                  <h6>언제나 제일 느린 게 후회랬는데</h6>
+                  <h6>정말 바본지 끝까지 너와의 끈을 놓지 못해</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>나는 심장이 없어 나는 심장이 없어</h6>
+                  <h6>오늘도 뻔한 거짓말을 해</h6>
+                  <h6>가슴이 넘 아픈데 이렇게 보채는데</h6>
+                  <h6>어떻게 웃을 수가 있겠어</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>아프다고 말하면 정말 아플 것 같아서</h6>
+                  <h6>슬프다고 말하면 눈물이 날 것 같아서</h6>
+                  <h6>그냥 웃지 그냥 웃지 그냥 웃지</h6>
+                  <h6>그런데 사람들이 왜 우냐고</h6>
+                  <h6>물어 이렇게 웃는데</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>(웃자) TV속 연예인들처럼</h6>
+                  <h6>(웃자) 너의 미니홈피 제목처럼</h6>
+                  <h6>(웃자) 행복했던 내 어제처럼 (처럼..처럼..)</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>나는 심장이 없어 아플 수가 난 없어</h6>
+                  <h6>나는 심장이 없어 아플 수가 난 없어</h6>
+                  <h6>그냥 웃자 그냥 웃자 그냥 웃자</h6>
+                  <h6>제발 좀 눈물아 이제는 멈춰줘</h6>
+                </p>
+              </div>
+              <div class="song-title">심장이 없어 - 에이트(8eight)</div>
+              <audio controls>
+                <source src="media/mp3/2000/에이트8eight  심장이 없어.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+            </div>
+            <span class="expanded-close">&times;</span>
+          </div>
+        </div>
+        <div class="expanded" id="expanded7">
+          <div class="expanded-content">
+            <div class="expanded-image">
+              <img src="./media/2000/윤하.PNG" alt="앨범 이미지">
+            </div>
+            <div class="expanded-audio">
+              <div class="lyrics-box">
+                <p>
+                  <h6>한 시간마다 보고 싶다고 감정 없이 말하지 말아</h6>
+                  <h6>흔하게 널린 연애 지식은 통하지 않아</h6>
+                  <h6>백 번을 넘게 사랑한다고 감동 없이 말하지 말아</h6>
+                  <h6>잘 잡혀 가던 분위기마저 깨 버리잖아</h6>
+                  <h6>여자는 생각보다 단순하지 않아</h6>
+                  <h6>행복하게 만드는 방법도 조금씩은 달라</h6>
+                  <h6>하루에 네 번 사랑을 말하고</h6>
+                  <h6>여덟 번 웃고 여섯 번의 키스를 해 줘</h6>
+                  <h6>날 열어주는 단 하나뿐인 비밀번호야</h6>
+                  <h6>누구도 알 수 없게 너만이 나를 가질 수 있도록</h6>
+                  <h6>You are my secret boy boy boy, boy boy boy</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>아무데서나 나타나지 마 항상 놀라지만은 않아</h6>
+                  <h6>화장기 없는 얼굴 보이면 화도 나는 걸</h6>
+                  <h6>남자는 여자만큼 섬세하지 않아</h6>
+                  <h6>하고 싶은 대로만 한다면 다 된다고 믿어</h6>
+                  <h6>하루에 네 번 사랑을 말하고</h6>
+                  <h6>여덟 번 웃고 여섯 번의 키스를 해 줘</h6>
+                  <h6>날 열어주는 단 하나뿐인 비밀번호야</h6>
+                  <h6>누구도 알 수 없게 너만이 나를 가질 수 있도록</h6>
+                  <h6>You are my secret boy boy boy, boy boy boy</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>어렵다고 포기하지 말아 줘</h6>
+                  <h6>너 하나만 원하는 날 알아줘</h6>
+                  <h6>바람둥이같은 남자들에게</h6>
+                  <h6>여자들은 늘 속고 마는걸</h6>
+                  <h6>날 애태우고 달랠 줄 아는 네가 되길 바라</h6>
+                  <br>
+                </p>
+                <p>
+                  <h6>하루에 네 번 사랑을 말하고</h6>
+                  <h6>여덟 번 웃고 여섯 번의 키스를 해 줘</h6>
+                  <h6>날 열어주는 단 하나뿐인 비밀번호야</h6>
+                  <h6>누구도 알 수 없게 너만이 나를 가질 수 있도록</h6>
+                  <h6>You are my secret boy boy boy, boy boy boy</h6>
+                </p>
+              </div>
+              <div class="song-title">비밀번호 486 - 윤하</div>
+              <audio controls>
+                <source src="media/mp3/2000/윤하  비밀번호 486.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+            </div>
+            <span class="expanded-close">&times;</span>
+          </div>
+        </div>
+        <div class="expanded" id="expanded8">
+          <div class="expanded-content">
+            <div class="expanded-image">
+              <img src="./media/2000/아웃사이더.PNG" alt="앨범 이미지">
+            </div>
+            <div class="expanded-audio">
+              <div class="lyrics-box">
+                <p>
+                  <h6>상처를 치료해줄 사람 어디 없나</h6>
+                  <h6>가만히 놔두다간 끊임없이 덧나</h6>
+                  <h6>사랑도 사람도 너무나도 겁나</h6>
+                  <h6>혼자인게 무서워 난 잊혀질까 두려워</h6>
+                  <h6>상처를 치료해줄 사람 어디 없나</h6>
+                  <h6>가만히 놔두다간 끊임없이 덧나</h6>
+                  <h6>사랑도 사람도 너무나도 겁나</h6>
+                  <h6>혼자인게 무서워 난 잊혀질까 두려워</h6>
+                  <h6>언제나 외톨이 맘의 문을 닫고</h6>
+                  <h6>슬픔을 등에 지고 살아가는 바보</h6>
+                  <h6>두 눈을 감고 두 귀를 막고</h6>
+                  <h6>캄캄한 어둠속에 내 자신을 가둬</h6>
+                  <h6>365일 1년 내내</h6>
+                  <h6>방황하는 내 영혼을 쫓아 키를 잡은 Jack Sparrow</h6>
+                  <h6>몰아치는 Hurricane 졸라매는 허리끈에</h6>
+                  <h6>방향감을 상실하고 길을 잃은 소리꾼</h6>
+                  <h6>내 안에 숨어 있는 또 다른 나와 싸워</h6>
+                  <h6>그녀가 떠나갈때 내게 말했었지</h6>
+                  <h6>너는 곁에 있어도 있는 게 아닌것 같다고</h6>
+                  <h6>만지면 베어버리는 칼날같은 사람</h6>
+                  <h6>심장이 얼어붙은 차가웠던 사랑</h6>
+                  <h6>그래, 1분 1초가 사는게 사는게 아냐</h6>
+                  <h6>매일 매일이 너무나 두려워</h6>
+                  <h6>M'aider 누가 날 좀 꺼내줘</h6>
+                  <h6>언제나 외톨이 맘의 문을 닫고</h6>
+                  <h6>슬픔을 등에 지고 살아가는 바보</h6>
+                  <h6>두 눈을 감고 두 귀를 막고</h6>
+                  <h6>캄캄한 어둠속에 내 자신을 가둬</h6>
+                  <h6>언제나 외톨이 맘의 문을 닫고</h6>
+                  <h6>슬픔을 등에 지고 살아가는 바보</h6>
+                  <h6>두 눈을 감고 두 귀를 막고</h6>
+                  <h6>캄캄한 어둠속에 내 자신을 가둬</h6>
+                  <h6>아무도 모르게 다가온 이별에 대면했을때</h6>
+                  <h6>또 다시 혼자가 되는게 두려워 외면했었네</h6>
+                  <h6>꿈에도 그리던 지나간 시간이 다시금 내게로</h6>
+                  <h6>되돌아오기를 바라며 간절한 맘으로 밤마다 기도했었네</h6>
+                  <h6>시위를 당기고 내 손을 떠나간 추억의 화살이</h6>
+                  <h6>머나먼 과녁을 향해서 한없이 빠르게 날아가</h6>
+                  <h6>내게로 돌아와 달라고 내 손을 붙잡아 달라고</h6>
+                  <h6>부르고 불러도 한없이 소리쳐 대봐도 아무런 대답이 없는 널</h6>
+                  <h6>내 기억 속에서 너라는 사람의 존재를 완전히</h6>
+                  <h6>지우려 끝없이 몸부림쳐 봐도</h6>
+                  <h6>매일밤 꿈에서 그대가 나타나 흐르는 눈물을 닦아주는걸</h6>
+                  <h6>나 어떡하라고 다 끄떡없다고</h6>
+                  <h6>거짓말 하라고 더는 못 참겠다고</h6>
+                  <h6>나도 아플 땐 아프다고 슬플땐 슬프다고</h6>
+                  <h6>얼어 붙은 심장이 자꾸만 내게로 고자질해</h6>
+                  <h6>정말로 끝이라고 정말로 괜찮다고</h6>
+                  <h6>꾹 참고 참았던 눈물이 자꾸만 내게로 쏟아지네</h6>
+                  <h6>상처를 치료해줄 사람 어디 없나</h6>
+                  <h6>가만히 놔두다가 끊임없이 덧나</h6>
+                  <h6>사랑도 사람도 너무나도 겁나</h6>
+                  <h6>혼자인게 무서워 난 잊혀질까 두려워</h6>
+                  <h6>상처를 치료해줄 사람 어디 없나</h6>
+                  <h6>가만히 놔두다가 끊임없이 덧나</h6>
+                  <h6>사랑도 사람도 너무나도 겁나</h6>
+                  <h6>혼자인게 무서워 난 잊혀질까 두려워</h6>
+                  <h6>언제나 외톨이 맘의 문을 닫고</h6>
+                  <h6>슬픔을 등에 지고 살아가는 바보</h6>
+                  <h6>두 눈을 감고 두 귀를 막고</h6>
+                  <h6>캄캄한 어둠속에 내 자신을 가둬</h6>
+                  <h6>언제나 외톨이 맘의 문을 닫고</h6>
+                  <h6>슬픔을 등에 지고 살아가는 바보</h6>
+                  <h6>두 눈을 감고 두 귀를 막고</h6>
+                  <h6>캄캄한 어둠속에 내 자신을 가둬</h6>
+                </p>
+              </div>
+              <div class="song-title">외톨이 - 아웃사이더</div>
+              <audio controls>
+                <source src="media/mp3/2000/아웃사이더.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+                </audio>
+            </div>
+            <span class="expanded-close">&times;</span>
+          </div>
+        </div>
+
 <footer>
   <div class="dropdown">
     <a href="main.html"><i class="fas fa-home"></i>홈으로 돌아가기</a>
@@ -241,30 +1125,35 @@
   <div class="dropdown">
     <a href="faq.html"><i class="fas fa-question-circle"></i>FAQ 및 연락처</a>
   </div>
+  <div class="dropdown">
+    <a href="Copyright_Music.html"><i class="fas fa-pen"></i>자료 출처</a>
+  </div>
 </footer>
 <script>
-  const pages = document.querySelectorAll('.page');
-
-  pages.forEach(page => {
-    page.addEventListener('click', () => {
-      pages.forEach(p => {
-        if (p !== page) {
-          p.classList.remove('expanded');
-        }
+  document.querySelectorAll('.expanded-close').forEach(closeBtn => {
+  closeBtn.addEventListener('click', () => {
+    const expandedDiv = closeBtn.closest('.expanded');
+    const audio = expandedDiv.querySelector('audio');
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+    expandedDiv.style.display = 'none';
+  });
+});
+  document.querySelectorAll('.square').forEach(square => {
+    square.addEventListener('click', () => {
+      const targetId = square.getAttribute('data-target');
+      document.querySelectorAll('.expanded').forEach(expanded => {
+        expanded.style.display = 'none';
       });
-      page.classList.toggle('expanded');
+      document.getElementById(targetId).style.display = 'flex';
     });
   });
-
-  document.querySelectorAll('.arrow').forEach(arrow => {
-    arrow.addEventListener('click', event => {
-      event.stopPropagation();
-      const currentPage = event.target.parentNode;
-      const nextPage = arrow.classList.contains('left') ? currentPage.previousElementSibling : currentPage.nextElementSibling;
-      if (nextPage) {
-        currentPage.classList.remove('expanded');
-        nextPage.classList.add('expanded');
-      }
+        
+  document.querySelectorAll('.expanded-close').forEach(closeBtn => {
+    closeBtn.addEventListener('click', () => {
+      closeBtn.closest('.expanded').style.display = 'none';
     });
   });
 </script>
