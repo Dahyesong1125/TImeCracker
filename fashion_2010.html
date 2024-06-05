@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TimeCracker-fashion-2010</title>
+  <title>TimeCracker Fashion 2010</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
@@ -12,8 +12,8 @@
       height: 100%;
       margin: 0;
       font-family: 'Orbitron', sans-serif;
-      background-color: #211f3d; /* 몽환적이고 우주적인 색상 */
-      background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%); /* 배경 이미지 */
+      background-color: #211f3d;
+      background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%);
       color: white;
     }
 
@@ -97,67 +97,97 @@
       margin: 0 10px;
     }
 
-    .body-container {
+    .gallery {
       display: flex;
-      height: 100%;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 40px; /* 섹션 크기를 키우기 위해 마진을 늘림 */
     }
 
-    .page {
-      flex: 1;
-      overflow: hidden;
-      transition: flex-grow 0.5s;
+    .gallery img {
+      width: 300px; /* 이미지 크기를 키움 */
+      height: 300px; /* 이미지 크기를 키움 */
+      margin: 15px; /* 이미지 간 간격을 조금 더 키움 */
       cursor: pointer;
-      position: relative;
+      border: 2px solid white;
+      border-radius: 10px;
+      transition: transform 0.3s;
     }
 
-    .page.expanded {
-      flex-grow: 10;
+    .gallery img:hover {
+      transform: scale(1.1);
     }
 
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 24px;
-      color: white;
-      cursor: pointer;
-      z-index: 2;
-    }
-
-    .arrow.left {
-      left: 10px;
-    }
-
-    .arrow.right {
-      right: 10px;
-    }
-
-    .page-content {
+    .modal {
       display: none;
-    }
-
-    .page.expanded .page-content {
-      display: block;
-    }
-
-    .page-content p {
-      margin: 10px 0;
-      font-size: 20px;
-    }
-
-    .video-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
-    }
-
-    .video-container video {
-      position: absolute;
-      top: 0;
+      position: fixed;
+      z-index: 100;
       left: 0;
+      top: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .modal-content {
+      display: flex;
+      justify-content: space-between;
+      margin: 5% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 900px;
+      background-color: #111;
+      border: 1px solid #888;
+      border-radius: 10px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      color: #fff;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .modal img {
+      max-width: 100%;
+      max-height: 80vh; /* 화면 높이에 맞게 */
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    .description {
+      width: 35%;
+      margin-left: 20px;
+      font-size: 18px;
+      color: #ddd;
+      align-self: center;
+    }
+
+    .content {
+      min-height: 100vh;
+      padding-bottom: 60px; /* 푸터 높이만큼 패딩 추가 */
+      box-sizing: border-box;
+    }
+
+    .background-section {
+      margin: 40px; /* 섹션 간격을 위해 마진 추가 */
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
     }
 
     footer {
@@ -166,6 +196,8 @@
       padding: 10px 20px;
       text-align: center;
       position: relative;
+      bottom: 0;
+      width: 100%;
     }
 
     footer .dropdown {
@@ -191,49 +223,79 @@
 
 <header>
   <h1><a href="main.html">TimeCracker</a></h1>
-</header> 
+</header>
 <nav>
-        <div class="dropdown">
-            <span><i class="fas fa-tshirt"></i>Fashion</span>
-            <div class="dropdown-content">
-                <a href="fashion_1980.html">1980년</a>
-                <a href="fashion_1990.html">1990년</a>
-                <a href="fashion_2000.html">2000년</a>
-                <a href="fashion_2010.html">2010년</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <span><i class="fas fa-music"></i>Music</span>
-            <div class="dropdown-content">
-                <a href="music_1980.html">1980년</a>
-                <a href="music_1990.html">1990년</a>
-                <a href="music_2000.html">2000년</a>
-                <a href="music_2010.html">2010년</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <span><i class="fas fa-landmark"></i>History</span>
-            <div class="dropdown-content">
-                <a href="history_1980.html">1980년</a>
-                <a href="history_1990.html">1990년</a>
-                <a href="history_2000.html">2000년</a>
-                <a href="history_2010.html">2010년</a>
-            </div>
-        </div>
-        <div class="dropdown">
-            <span><i class="fas fa-globe"></i><a href="https://mz-jfk4-staging.b12sites.com/index" style="color: white; text-decoration: none;">MZ</a></span>
-        </div>
+  <div class="dropdown">
+    <span><i class="fas fa-tshirt"></i>Fashion</span>
+    <div class="dropdown-content">
+      <a href="fashion_1980.html">1980년</a>
+      <a href="fashion_1990.html">1990년</a>
+      <a href="fashion_2000.html">2000년</a>
+      <a href="fashion_2010.html">2010년</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <span><i class="fas fa-music"></i>Music</span>
+    <div class="dropdown-content">
+      <a href="music_1980.html">1980년</a>
+      <a href="music_1990.html">1990년</a>
+      <a href="music_2000.html">2000년</a>
+      <a href="music_2010.html">2010년</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <span><i class="fas fa-landmark"></i>History</span>
+    <div class="dropdown-content">
+      <a href="history_1980.html">1980년</a>
+      <a href="history_1990.html">1990년</a>
+      <a href="history_2000.html">2000년</a>
+      <a href="history_2010.html">2010년</a>
+    </div>
+  </div>
+  <div class="dropdown">
+    <span><i class="fas fa-globe"></i><a href="https://mz-jfk4-staging.b12sites.com/index" style="color: white; text-decoration: none;">MZ</a></span>
+  </div>
 </nav>
-<div class="history-section"> 
+<div class="history-section">
   <div>
-    <span><i class="fas fa-tshirt"></i> Fashion</span> 
+    <span><i class="fas fa-tshirt"></i> Fashion</span>
   </div>
   <div>
-    <span>2010년</span> 
+    <span>2010년</span>
   </div>
 </div>
-<div class="body-container">
+<div class="content">
+  <div class="background-section">
+    2010년대 특징 설명
+  </div>
+
+  <div class="gallery">
+    <img src="fashion_2010/image.png" alt="Fashion 1">
+    <img src="fashion_2010/image (1).png" alt="Fashion 2">
+    <img src="fashion_2010/image (2).png" alt="Fashion 3">
+    <img src="fashion_2010/image (3).png" alt="Fashion 4">
+  </div>
+
+  <div class="background-section">
+    2010년대 특징 설명
+  </div>
+
+  <div class="gallery">
+    <img src="fashion_2010/image (4).png" alt="Fashion 5">
+    <img src="fashion_2010/image (5).png" alt="Fashion 6">
+    <img src="fashion_2010/image (6).png" alt="Fashion 7">
+    <img src="fashion_2010/image (7).png" alt="Fashion 8">
+  </div>
 </div>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img src="" alt="Selected Fashion">
+    <div class="description">여기에 설명이 들어갑니다.</div>
+  </div>
+</div>
+
 <footer>
   <div class="dropdown">
     <a href="main.html"><i class="fas fa-home"></i>홈으로 돌아가기</a>
@@ -242,31 +304,25 @@
     <a href="faq.html"><i class="fas fa-question-circle"></i>FAQ 및 연락처</a>
   </div>
 </footer>
+
 <script>
-  const pages = document.querySelectorAll('.page');
+  var modal = document.getElementById("myModal");
+  var modalImg = modal.querySelector("img");
+  var captionText = modal.querySelector(".description");
+  var span = document.getElementsByClassName("close")[0];
+  var galleryImages = document.querySelectorAll(".gallery img");
 
-  pages.forEach(page => {
-    page.addEventListener('click', () => {
-      pages.forEach(p => {
-        if (p !== page) {
-          p.classList.remove('expanded');
-        }
-      });
-      page.classList.toggle('expanded');
+  galleryImages.forEach(function(image, index) {
+    image.addEventListener("click", function() {
+      modal.style.display = "flex"; /* flex로 변경하여 설명과 이미지를 나란히 배치 */
+      modalImg.src = this.src;
+      captionText.innerHTML = "여기에 설명이 들어갑니다. 사진 " + (index + 1);
     });
   });
 
-  document.querySelectorAll('.arrow').forEach(arrow => {
-    arrow.addEventListener('click', event => {
-      event.stopPropagation();
-      const currentPage = event.target.parentNode;
-      const nextPage = arrow.classList.contains('left') ? currentPage.previousElementSibling : currentPage.nextElementSibling;
-      if (nextPage) {
-        currentPage.classList.remove('expanded');
-        nextPage.classList.add('expanded');
-      }
-    });
-  });
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
 </script>
 
 </body>
