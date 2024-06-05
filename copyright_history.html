@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자료 출처</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #211f3d;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            flex: 1;
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .content {
+            background-color: black;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            max-height: 70vh; /* Set maximum height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        }
+        .content::-webkit-scrollbar { 
+            display: none; /* Chrome, Safari and Opera */
+        }
+        .content h2 {
+            font-size: 24px;
+            border-bottom: 2px solid #001f3f;
+            padding-bottom: 10px;
+            color: white;
+        }
+        .content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 10px 0;
+            color: white;
+        }
+        .source {
+            margin-bottom: 20px;
+        }
+        .source strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: white;
+        }
+        .source a {
+            color: #00aeff; /* Brighter link color */
+            text-decoration: none;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        footer .dropdown {
+            margin-right: 20px;
+            display: inline-block;
+        }  
+
+        footer .dropdown a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer .dropdown i {
+            margin-right: 5px;
+        }
+
+        .back-button {
+            display: inline-block;
+        }
+
+        .back-button button {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .back-button button i {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>자료 출처 목록</h2>
+            
+            <div class="source">
+                <strong>1980년:</strong>
+                <a href="https://archives.kdemo.or.kr/isad/view/00728859">63빌딩사진출처</a>
+                <a href="https://mlbpark.donga.com/mp/b.php?m=search&p=1201&b=bullpen&id=202001110039040076&select=sct&query=87&subselect=&subquery=&user=&site=donga.com&reply=&source=&pos=&sig=h6jBSY-1ihRRKfX2hfj9Sf-Y6hlq">007격추사진출처</a>
+                <a href="https://m.blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=kocca_music&logNo=221414397617">88올림픽사진출처</a>
+                <strong>1990년:</strong>
+                <a href="https://biz.chosun.com/site/data/html_dir/2007/01/06/2007010600138.html">90년대휴대폰사진출처</a>
+                <a href="https://news.sbs.co.kr/news/endPage.do?news_id=N1004992410">imf사진출처</a>
+                <a href="https://namu.wiki/w/%EA%B8%88%EB%AA%A8%EC%9C%BC%EA%B8%B0">금모으기운동사진출처</a>
+                <strong>2000년:</strong>
+                <a href="https://www.moneys.co.kr/article/2024013108220313406">숭례문화재사진출처</a>
+                <a href="https://blog.naver.com/toranoko/120109084071">2002월드컵사진출처</a>
+                <a href="https://nokoinsight.com/116">이라크파병사진출처</a>
+                <strong>2010년:</strong>
+                <a href="https://chimhaha.net/life/453320?page=1">천안함사진출처</a>
+                <a href="https://www.infostockdaily.co.kr/news/articleView.html?idxno=170183">싸이월드사진출처</a>
+                <a href="https://www.news1.kr/articles/?1521877">카카오톡사진출처</a>
+                <p>본 자료들은 교육 및 단순 정보 제공 목적으로 사용되었습니다.</p>
+            </div>
+            <!-- 추가적인 source 항목들 -->
+            
+        </div>
+    </div>
+
+<footer>
+    <div class="dropdown">
+        <a href="https://dahyesong1125.github.io/TImeCracker/main.html"><i class="fas fa-home"></i>홈으로 돌아가기</a>
+    </div>
+    <div class="back-button">
+    <button onclick="goBack()" class="styled-button"><i class="fas fa-arrow-left"></i> 이전</button>
+    </div>
+    <div class="dropdown">
+        <a href="https://dahyesong1125.github.io/TImeCracker/faq.html"><i class="fas fa-question-circle"></i>FAQ 및 연락처</a>
+    </div>
+
+</footer>
+</body>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+</html>
