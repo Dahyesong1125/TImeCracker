@@ -217,6 +217,20 @@
     footer .dropdown:hover i {
       animation: rotate 1.0s;
     }
+
+    /* @font-face 규칙을 사용하여 폰트를 불러오기 */
+@font-face {
+    font-family: 'BMHANNAPro';
+    src: url('Fonts/MyCustomFont.woff/woff/BMHANNAPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 한글 텍스트에만 폰트를 적용하기 위한 CSS */
+.korean-text {
+    font-family: 'BMHANNAPro', sans-serif;
+}
+
   </style>
 </head>
 <body link="white" vlink="white">
