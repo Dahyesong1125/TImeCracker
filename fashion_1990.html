@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TimeCracker Fashion 1990</title>
+  <title>TimeCracker-history</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
@@ -12,8 +12,8 @@
       height: 100%;
       margin: 0;
       font-family: 'Orbitron', sans-serif;
-      background-color: #211f3d;
-      background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%);
+      background-color: #211f3d; /* 몽환적이고 우주적인 색상 */
+      background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%); /* 배경 이미지 */
       color: white;
     }
 
@@ -29,8 +29,6 @@
       align-items: center;
       justify-content: center;
     }
-
-    a { text-decoration:none }
 
     .dropdown {
       position: relative;
@@ -97,97 +95,67 @@
       margin: 0 10px;
     }
 
-    .gallery {
+    .body-container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 40px; /* 섹션 크기를 키우기 위해 마진을 늘림 */
+      height: 100%;
     }
 
-    .gallery img {
-      width: 300px; /* 이미지 크기를 키움 */
-      height: 300px; /* 이미지 크기를 키움 */
-      margin: 15px; /* 이미지 간 간격을 조금 더 키움 */
+    .page {
+      flex: 1;
+      overflow: hidden;
+      transition: flex-grow 0.5s;
       cursor: pointer;
-      border: 2px solid white;
-      border-radius: 10px;
-      transition: transform 0.3s;
+      position: relative;
     }
 
-    .gallery img:hover {
-      transform: scale(1.1);
+    .page.expanded {
+      flex-grow: 10;
     }
 
-    .modal {
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .arrow.left {
+      left: 10px;
+    }
+
+    .arrow.right {
+      right: 10px;
+    }
+
+    .page-content {
       display: none;
-      position: fixed;
-      z-index: 100;
-      left: 0;
-      top: 0;
+    }
+
+    .page.expanded .page-content {
+      display: block;
+    }
+
+    .page-content p {
+      margin: 10px 0;
+      font-size: 20px;
+    }
+
+    .video-container {
+      position: relative;
       width: 100%;
       height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.9);
     }
 
-    .modal-content {
-      display: flex;
-      justify-content: space-between;
-      margin: 5% auto;
-      padding: 20px;
-      width: 80%;
-      max-width: 900px;
-      background-color: #111;
-      border: 1px solid #888;
-      border-radius: 10px;
-    }
-
-    .close {
+    .video-container video {
       position: absolute;
-      top: 10px;
-      right: 25px;
-      color: #fff;
-      font-size: 35px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .close:hover,
-    .close:focus {
-      color: #bbb;
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .modal img {
-      max-width: 100%;
-      max-height: 80vh; /* 화면 높이에 맞게 */
-      object-fit: contain;
-      border-radius: 10px;
-    }
-
-    .description {
-      width: 35%;
-      margin-left: 20px;
-      font-size: 18px;
-      color: #ddd;
-      align-self: center;
-    }
-
-    .content {
-      min-height: 100vh;
-      padding-bottom: 60px; /* 푸터 높이만큼 패딩 추가 */
-      box-sizing: border-box;
-    }
-
-    .background-section {
-      margin: 40px; /* 섹션 간격을 위해 마진 추가 */
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-      text-align: center;
-      font-size: 18px;
-      line-height: 1.6;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     footer {
@@ -196,8 +164,6 @@
       padding: 10px 20px;
       text-align: center;
       position: relative;
-      bottom: 0;
-      width: 100%;
     }
 
     footer .dropdown {
@@ -218,83 +184,107 @@
       animation: rotate 1.0s;
     }
 
-    }
+    a { text-decoration:none }
+
   </style>
 </head>
 <body link="white" vlink="white">
 
 <header>
   <h1><a href="main.html">TimeCracker</a></h1>
-</header>
+</header> 
+
 <nav>
   <div class="dropdown">
     <span><i class="fas fa-tshirt"></i>Fashion</span>
     <div class="dropdown-content">
-      <a href="fashion_1980.html">1980년</a>
-      <a href="fashion_1990.html">1990년</a>
-      <a href="fashion_2000.html">2000년</a>
-      <a href="fashion_2010.html">2010년</a>
+      <a href="#">1980년</a>
+      <a href="#">1990년</a>
+      <a href="#">2000년</a>
+      <a href="#">2010년</a>
     </div>
   </div>
   <div class="dropdown">
     <span><i class="fas fa-music"></i>Music</span>
     <div class="dropdown-content">
-      <a href="music_1980.html">1980년</a>
-      <a href="music_1990.html">1990년</a>
-      <a href="music_2000.html">2000년</a>
-      <a href="music_2010.html">2010년</a>
+      <a href="#">1980년</a>
+      <a href="#">1990년</a>
+      <a href="#">2000년</a>
+      <a href="#">2010년</a>
     </div>
   </div>
   <div class="dropdown">
     <span><i class="fas fa-landmark"></i>History</span>
     <div class="dropdown-content">
-      <a href="history_1980.html">1980년</a>
-      <a href="history_1990.html">1990년</a>
-      <a href="history_2000.html">2000년</a>
-      <a href="history_2010.html">2010년</a>
+      <a href="역사 1980년_최종.html">1980년</a>
+      <a href="역사 1990년_최종.html">1990년</a>
+      <a href="역사 2000년_최종.html">2000년</a>
+      <a href="역사 2010년_최종.html">2010년</a>
     </div>
   </div>
   <div class="dropdown">
-    <span><i class="fas fa-globe"></i><a href="https://timecrackermz-staging.b12sites.com/index" style="color: white; text-decoration: none;">MZ</a></span>
+    <span><i class="fas fa-globe"></i>MZ</span>
   </div>
 </nav>
-<div class="history-section">
+
+<div class="history-section"> 
   <div>
-    <span><i class="fas fa-tshirt"></i> Fashion</span>
+    <span><i class="fas fa-landmark"></i> History</span> 
   </div>
   <div>
-    <span">1990년</span>
-  </div>
-</div>
-<div class="content">
-  <div class="background-section">
-    1990년대 설명
-  </div>
-
-  <div class="gallery">
-    <img src="fashion_1900/image.png" alt="Fashion 1">
-    <img src="fashion_1990/image (1).png" alt="Fashion 2">
-    <img src="fashion_1990/image (2).png" alt="Fashion 3">
-    <img src="fashion_1990/image (3).png" alt="Fashion 4">
-  </div>
-
-  <div class="background-section">
-    1990년대 설명
-  </div>
-
-  <div class="gallery">
-    <img src="fashion_1990/image (4).png" alt="Fashion 5">
-    <img src="fashion_1990/image (5).png" alt="Fashion 6">
-    <img src="fashion_1990/image (6).png" alt="Fashion 7">
-    <img src="fashion_190/image (7).png" alt="Fashion 8">
+    <span>1990년</span> 
   </div>
 </div>
 
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <img src="" alt="Selected Fashion">
-    <div class="description korean-text">여기에 설명이 들어갑니다.</div>
+<div class="body-container">
+  <div class="page">
+    <table>
+      <tr>
+        <td><img src="History_img/90년대 휴대폰.jpg" alt="90년대 휴대폰"></td>
+        <td>
+          <div class="page-content">
+            <h2>"통화의 혁신, 90년대 휴대폰의 등장"</h2>
+            <p>1990년대는 한국의 IT 산업이 급속도로 발전하던 시기였습니다. <br> 휴대전화, 개인용 컴퓨터, 인터넷 등이 널리 확산되기 시작했습니다.</p>
+            <p>또한, 컴퓨터 가격이 덜 비싸지면서 가정에서도 개인용 컴퓨터를 많이 구입하게 되었습니다. <br> 초등학교부터 컴퓨터 과목이 생기고, 사교육 시장에도 컴퓨터 학원들이 많이 생겨났습니다.</p>
+            <p>이 컴퓨터를 통해 인터넷에도 접속할 수 있었는데, 당시에는 PC통신이라고 불렀습니다. <br> 한국에서는 하이텔, 천리안, 나우누리 등의 PC통신 회사 중 한 곳에 가입하여 인터넷을 사용했습니다.</p>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="arrow right">&#10095;</div>
+  </div>
+  
+  <div class="page">
+    <table>
+      <tr>
+        <td><img src="History_img/imf 사태.jpg" alt="imf 사태"></td>
+        <td>
+          <h2>"한국의 시련과 극복: IMF 외환위기의 전면정비"</h2>
+          <div class="page-content">
+            <p>1997년 말에 대한민국은 심각한 외환위기를 겪게 됩니다.<br> 당시 한국은 급격한 경제 성장으로 인해 외환 보유고가 부족해졌고, 대기업들의 연쇄 도산과 금융 시스템의 불안정으로 경제 위기에 직면했습니다. <br> 이로 인해 한국 정부는 국제통화기금(IMF)에 긴급 자금을 지원받기 위해 구제금융을 요청했습니다.</p>
+            <p>IMF는 한국에 약 580억 달러의 지원을 결정했으나, 그 대가로 구조조정과 경제 개혁을 요구했습니다. <br> 이 과정에서 많은 기업이 도산하고, 실업률이 급증하는 등 경제적으로 큰 어려움을 겪게 되었습니다.<br> 그러나 IMF의 도움과 정부의 개혁 정책 덕분에 한국 경제는 서서히 회복되기 시작했고, 이후 안정세를 되찾았습니다.</p>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="arrow left">&#10094;</div>
+    <div class="arrow right">&#10095;</div>
+  </div>
+  
+  <div class="page">
+    <table>
+      <tr>
+        <td><img src="History_img/금모으기 운동.png" alt="금모으기 운동"></td>
+        <td>
+          <h2>"국민의 단결, 금모으기 운동"</h2>
+          <div class="page-content">
+            <p>금모으기 운동은 1997년 말 외환위기(IMF 사태) 당시 한국 국민들이 외환 부족 사태를 극복하기 위해 자발적으로 금을 모아 국가에 기부한 캠페인입니다. <br> 이 운동은 외환위기로 국가 경제가 어려움을 겪자, 한국 정부의 요청에 따라 시작되었습니다.</p>
+            <p>국민들은 자신의 금반지, 목걸이, 금붙이 등을 기부하여 외환 보유고를 늘리고 외채 상환에 도움을 주었습니다. <br> 이 운동은 전 국민적인 참여와 애국심을 보여주는 상징적인 사건으로, 약 225톤의 금이 모였다고 합니다. <br> 금모으기 운동은 국민의 단결과 희생을 통해 국가적 위기를 극복하는 데 큰 역할을 했으며, 한국 경제가 다시 일어설 수 있는 중요한 밑거름이 되었습니다.</p>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="arrow left">&#10094;</div>
   </div>
 </div>
 
@@ -303,28 +293,35 @@
     <a href="main.html"><i class="fas fa-home"></i>홈으로 돌아가기</a>
   </div>
   <div class="dropdown">
-    <a href="faq.html""><i class="fas fa-question-circle"></i>FAQ 및 연락처</a>
+    <a href="faq.html"><i class="fas fa-question-circle"></i>FAQ 및 연락처</a>
   </div>
 </footer>
 
 <script>
-  var modal = document.getElementById("myModal");
-  var modalImg = modal.querySelector("img");
-  var captionText = modal.querySelector(".description");
-  var span = document.getElementsByClassName("close")[0];
-  var galleryImages = document.querySelectorAll(".gallery img");
+  const pages = document.querySelectorAll('.page');
 
-  galleryImages.forEach(function(image, index) {
-    image.addEventListener("click", function() {
-      modal.style.display = "flex"; /* flex로 변경하여 설명과 이미지를 나란히 배치 */
-      modalImg.src = this.src;
-      captionText.innerHTML = "여기에 설명이 들어갑니다. 사진 " + (index + 1);
+  pages.forEach(page => {
+    page.addEventListener('click', () => {
+      pages.forEach(p => {
+        if (p !== page) {
+          p.classList.remove('expanded');
+        }
+      });
+      page.classList.toggle('expanded');
     });
   });
 
-  span.onclick = function() {
-    modal.style.display = "none";
-  }
+  document.querySelectorAll('.arrow').forEach(arrow => {
+    arrow.addEventListener('click', event => {
+      event.stopPropagation();
+      const currentPage = event.target.parentNode;
+      const nextPage = arrow.classList.contains('left') ? currentPage.previousElementSibling : currentPage.nextElementSibling;
+      if (nextPage) {
+        currentPage.classList.remove('expanded');
+        nextPage.classList.add('expanded');
+      }
+    });
+  });
 </script>
 
 </body>
