@@ -1,0 +1,142 @@
+<!DOCTYPE html><!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자료 출처</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="start.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #211f3d;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            flex: 1;
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .content {
+            background-color: black;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            max-height: 70vh; /* Set maximum height */
+            overflow-y: auto; /* Enable vertical scrolling */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* Internet Explorer 10+ */
+        }
+        .content::-webkit-scrollbar { 
+            display: none; /* Chrome, Safari and Opera */
+        }
+        .content h2 {
+            font-size: 24px;
+            border-bottom: 2px solid #001f3f;
+            padding-bottom: 10px;
+            color: white;
+        }
+        .content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin: 10px 0;
+            color: white;
+        }
+        .source {
+            margin-bottom: 20px;
+        }
+        .source strong {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: white;
+        }
+        .source a {
+            color: #001f3f;
+            text-decoration: none;
+        }
+        .source a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        footer .dropdown {
+            margin-right: 20px;
+            display: inline-block;
+        }  
+
+        footer .dropdown a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer .dropdown i {
+            margin-right: 5px;
+        }
+        
+        footer .dropdown:hover i {
+            animation: rotate 1.0s;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>자료 출처 목록</h2>
+            
+            <div class="source">
+                <strong>1. 메인 화면:</strong>
+                <p>사용한 자료이름과 그 자료 출처</p>
+            </div>
+            <div class="source">
+                <strong>2. Fashion:</strong>
+                <p>Author Name, <em>Book Title</em>, Publisher, Year</p>
+                <p>사용한 자료이름과 그 자료 출처</p>
+            </div>
+
+            <div class="source">
+                <strong>3. Music:</strong>
+                <p>Author Name, "Paper Title", Journal Name, Year</p>
+                <p>사용한 자료이름과 그 자료 출처.</p>
+            </div>
+
+            <div class="source">
+                <strong>4. History:</strong>
+                <p>Journalist Name, "Article Title", Newspaper/Magazine Name, Date</p>
+                <p>사용한 자료이름과 그 자료 출처</p>
+            </div>
+
+            <div class="source">
+                <strong>5. MZ:</strong>
+                <p>Creator Name, <em>Video Title</em>, Platform, Upload Date</p>
+                <p>사용한 자료이름과 그 자료 출처</p>
+            </div>
+
+            <!-- 추가적인 source 항목들 -->
+            
+        </div>
+    </div>
+
+<footer>
+    <div class="dropdown">
+        <a href="main.html"><i class="fas fa-home"></i>홈으로 돌아가기</a>
+    </div>
+    <div class="dropdown">
+        <a href="faq.html"><i class="fas fa-question-circle"></i>FAQ 및 연락처</a>
+    </div>
+    <div class="dropdown">
+        <a href="1980.html"><i class="fas fa-music"></i>Music</a>
+      </div>
+</footer>
+</body>
+</html>
