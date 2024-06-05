@@ -175,77 +175,88 @@ body, html {
 
 @font-face {
     font-family: 'BMDOHYEON';
-    src: url('Fonts/MyCustomFont.woff/otf/BMDOHYEON_otf.otf') format('opentype');
+    src: url('Fonts/MyCustomFont.woff/otf/BMDOHYEON_otf.otf') format('opentype'),
+         url('Fonts/MyCustomFont.woff/ttf/BMDOHYEON_ttf.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'BMEULJIRO';
-    src: url('Fonts/MyCustomFont.woff/otf/BMEULJIRO.otf') format('opentype');
+    src: url('Fonts/MyCustomFont.woff/otf/BMEULJIRO.otf') format('opentype'),
+         url('Fonts/MyCustomFont.woff/ttf/BMEULJIROTTF.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'BMEuljiro10yearslaterOTF';
-    src: url('Fonts/MyCustomFont.woff/otf/BMEuljiro10yearslaterOTF.otf') format('opentype');
+    font-family: 'BMEuljiro10yearslater';
+    src: url('Fonts/MyCustomFont.woff/otf/BMEuljiro10yearslaterOTF.otf') format('opentype'),
+         url('Fonts/MyCustomFont.woff/ttf/BMEuljiro10yearslater.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'BMEuljirooraeOTF';
-    src: url('Fonts/MyCustomFont.woff/otf/BMEuljirooraeOTF.otf') format('opentype');
+    font-family: 'BMEuljiroorae';
+    src: url('Fonts/MyCustomFont.woff/otf/BMEuljirooraeOTF.otf') format('opentype'),
+         url('Fonts/MyCustomFont.woff/ttf/BMEuljiroorae.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'BMHANNAAir';
-    src: url('Fonts/MyCustomFont.woff/otf/BMHANNAAir_otf.otf') format('opentype');
+    src: url('Fonts/MyCustomFont.woff/otf/BMHANNAAir_otf.otf') format('opentype'),
+         url('Fonts/MyCustomFont.woff/ttf/BMHANNAAir_ttf.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'BMHANNAPro';
-    src: url('Fonts/MyCustomFont.woff/otf/BMHANNAProOTF.otf') format('opentype');
+    src: url('Fonts/MyCustomFont.woff/otf/BMHANNAProOTF.otf') format('opentype'),
+         url('Fonts/MyCustomFont.woff/ttf/BMHANNAPro.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'BMHANNA_11yrs';
-    src: url('Fonts/MyCustomFont.woff/otf/BMHANNA_11yrs_otf.otf') format('opentype');
+    src: url('Fonts/MyCustomFont.woff/otf/BMHANNA_11yrs_otf.otf') format('opentype'),
+         url('Fonts/MyCustomFont.woff/ttf/BMHANNA_11yrs_ttf.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'BMJUA';
-    src: url('Fonts/MyCustomFont.woff/otf/BMJUA_otf.otf') format('opentype');
+    src: url('Fonts/MyCustomFont.woff/otf/BMJUA_otf.otf') format('opentype'),
+         url('Fonts/MyCustomFont.woff/ttf/BMJUA_ttf.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'BMKIRANGHAERANG';
-    src: url('Fonts/MyCustomFont.woff/otf/BMKIRANGHAERANG-OTF.otf') format('opentype');
+    src: url('Fonts/MyCustomFont.woff/otf/BMKIRANGHAERANG-OTF.otf') format('opentype'),
+         url('Fonts/MyCustomFont.woff/ttf/BMKIRANGHAERANG-TTF.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'BMYEONSUNG';
-    src: url('Fonts/MyCustomFont.woff/otf/BMYEONSUNG_otf.otf') format('opentype');
+    src: url('Fonts/MyCustomFont.woff/otf/BMYEONSUNG_otf.otf') format('opentype'),
+         url('Fonts/MyCustomFont.woff/ttf/BMYEONSUNG_ttf.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 /* 폰트를 한글 텍스트에 적용하기 위한 클래스 */
 .korean-text {
-    font-family: 'BMHANNAPro', sans-serif;
+    font-family: 'BMHANNAPro', sans-serif !important;
 }
+
 
 
