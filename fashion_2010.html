@@ -8,215 +8,220 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-    body, html {
-      height: 100%;
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background-color: #211f3d;
-      background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%);
-      color: white;
-    }
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #211f3d;
+  background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%);
+  color: white;
+}
 
-    header, nav {
-      background-color: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-    }
+header, nav {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+}
 
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    a { text-decoration:none }
+a { text-decoration:none }
 
-    .dropdown {
-      position: relative;
-      display: inline-block;
-      margin-right: 20px;
-    }
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-right: 20px;
+}
 
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: rgba(0, 0, 0, 0.9);
-      min-width: 100px;
-      z-index: 1;
-      font-size: 15px;
-      text-align: left;
-      border-radius: 5px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.9);
+  min-width: 100px;
+  z-index: 1;
+  font-size: 15px;
+  text-align: left;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-    .dropdown:hover .dropdown-content {
-      display: block;
-    }
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-    .dropdown-content a {
-      color: white;
-      padding: 12px 16px;
-      text-decoration: none;
-      display: block;
-      transition: background-color 0.3s;
-    }
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
 
-    .dropdown-content a:hover {
-      background-color: #555;
-    }
+.dropdown-content a:hover {
+  background-color: #555;
+}
 
-    .dropdown i {
-      margin-right: 5px;
-    }
+.dropdown i {
+  margin-right: 5px;
+}
 
-    .dropdown:hover i {
-      animation: rotate 1.0s;
-    }
+.dropdown:hover i {
+  animation: rotate 1.0s;
+}
 
-    @keyframes rotate {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
-    }
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
-    .history-section {
-      background-color: rgba(0, 0, 0, 0.7);
-      padding: 4px;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-      display: flex;
-      justify-content: space-between;
-    }
+.history-section {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 4px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+}
 
-    .history-section div {
-      flex: 1;
-      margin: 0 10px;
-    }
+.history-section div {
+  flex: 1;
+  margin: 0 10px;
+}
 
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 40px; /* 섹션 크기를 키우기 위해 마진을 늘림 */
-    }
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 40px;
+}
 
-    .gallery img {
-      width: 300px; /* 이미지 크기를 키움 */
-      height: 300px; /* 이미지 크기를 키움 */
-      margin: 15px; /* 이미지 간 간격을 조금 더 키움 */
-      cursor: pointer;
-      border: 2px solid white;
-      border-radius: 10px;
-      transition: transform 0.3s;
-    }
+.gallery img {
+  width: 300px;
+  height: 300px;
+  margin: 15px;
+  cursor: pointer;
+  border: 2px solid white;
+  border-radius: 10px;
+  transition: transform 0.3s;
+  object-fit: cover;
+}
 
-    .gallery img:hover {
-      transform: scale(1.1);
-    }
+.gallery img:hover {
+  transform: scale(1.1);
+}
 
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 100;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      background-color: rgba(0, 0, 0, 0.9);
-    }
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
 
-    .modal-content {
-      display: flex;
-      justify-content: space-between;
-      margin: 5% auto;
-      padding: 20px;
-      width: 80%;
-      max-width: 900px;
-      background-color: #111;
-      border: 1px solid #888;
-      border-radius: 10px;
-    }
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 900px;
+  background-color: #111;
+  border: 1px solid #888;
+  border-radius: 10px;
+}
 
-    .close {
-      position: absolute;
-      top: 10px;
-      right: 25px;
-      color: #fff;
-      font-size: 35px;
-      font-weight: bold;
-      cursor: pointer;
-    }
+.close {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: #fff;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    .close:hover,
-    .close:focus {
-      color: #bbb;
-      text-decoration: none;
-      cursor: pointer;
-    }
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
 
-    .modal img {
-      max-width: 100%;
-      max-height: 80vh; /* 화면 높이에 맞게 */
-      object-fit: contain;
-      border-radius: 10px;
-    }
+.modal img {
+  max-width: 100%;
+  max-height: 60vh;
+  object-fit: contain;
+  border-radius: 10px;
+}
 
-    .description {
-      width: 35%;
-      margin-left: 20px;
-      font-size: 18px;
-      color: #ddd;
-      align-self: center;
-    }
+.description {
+  width: 100%;
+  margin-top: 20px;
+  font-size: 18px;
+  color: #ddd;
+  text-align: center;
+}
 
-    .content {
-      min-height: 100vh;
-      padding-bottom: 60px; /* 푸터 높이만큼 패딩 추가 */
-      box-sizing: border-box;
-    }
+.content {
+  min-height: 100vh;
+  padding-bottom: 60px;
+  box-sizing: border-box;
+}
 
-    .background-section {
-      margin: 40px; /* 섹션 간격을 위해 마진 추가 */
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-      border-radius: 10px;
-      text-align: center;
-      font-size: 18px;
-      line-height: 1.6;
-    }
+.background-section {
+  margin: 40px;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.6;
+}
 
-    footer {
-      background-color: rgba(0, 0, 0, 0.7);
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-    }
+footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
 
-    footer .dropdown {
-      margin-right: 20px;
-      display: inline-block;
-    }
+footer .dropdown {
+  margin-right: 20px;
+  display: inline-block;
+}
 
-    footer .dropdown a {
-      color: white;
-      text-decoration: none;
-    }
+footer .dropdown a {
+  color: white;
+  text-decoration: none;
+}
 
-    footer .dropdown i {
-      margin-right: 5px;
-    }
+footer .dropdown i {
+  margin-right: 5px;
+}
 
-    footer .dropdown:hover i {
-      animation: rotate 1.0s;
-    }
+footer .dropdown:hover i {
+  animation: rotate 1.0s;
+}
+
 
     }
   </style>
