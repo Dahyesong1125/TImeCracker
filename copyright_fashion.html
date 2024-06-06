@@ -1,4 +1,4 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -56,11 +56,8 @@
             color: white;
         }
         .source a {
-            color: #001f3f;
+            color: #00aeff; /* Brighter link color */
             text-decoration: none;
-        }
-        .source a:hover {
-            text-decoration: underline;
         }
         footer {
             background-color: rgba(0, 0, 0, 0.7);
@@ -83,9 +80,23 @@
         footer .dropdown i {
             margin-right: 5px;
         }
-        
-        footer .dropdown:hover i {
-            animation: rotate 1.0s;
+
+        .back-button {
+            display: inline-block;
+        }
+
+        .back-button button {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .back-button button i {
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -95,9 +106,22 @@
             <h2>자료 출처 목록</h2>
             
             <div class="source">
-                <strong>1. 앨범사진:</strong>
-                <p>BUGS!(https://music.bugs.co.kr/), 1980 모든 앨범 사진들, https://music.bugs.co.kr/musicpd/albumview/34202, 2024/05/30</p>
-
+                <strong>1980년:</strong>
+                <a href="https://archives.kdemo.or.kr/isad/view/00728859">63빌딩사진출처</a>
+                <a href="https://mlbpark.donga.com/mp/b.php?m=search&p=1201&b=bullpen&id=202001110039040076&select=sct&query=87&subselect=&subquery=&user=&site=donga.com&reply=&source=&pos=&sig=h6jBSY-1ihRRKfX2hfj9Sf-Y6hlq">007격추사진출처</a>
+                <a href="https://m.blog.naver.com/PostView.nhn?isHttpsRedirect=true&blogId=kocca_music&logNo=221414397617">88올림픽사진출처</a>
+                <strong>1990년:</strong>
+                <a href="https://biz.chosun.com/site/data/html_dir/2007/01/06/2007010600138.html">90년대휴대폰사진출처</a>
+                <a href="https://news.sbs.co.kr/news/endPage.do?news_id=N1004992410">imf사진출처</a>
+                <a href="https://namu.wiki/w/%EA%B8%88%EB%AA%A8%EC%9C%BC%EA%B8%B0">금모으기운동사진출처</a>
+                <strong>2000년:</strong>
+                <a href="https://www.moneys.co.kr/article/2024013108220313406">숭례문화재사진출처</a>
+                <a href="https://blog.naver.com/toranoko/120109084071">2002월드컵사진출처</a>
+                <a href="https://nokoinsight.com/116">이라크파병사진출처</a>
+                <strong>2010년:</strong>
+                <a href="https://chimhaha.net/life/453320?page=1">천안함사진출처</a>
+                <a href="https://www.infostockdaily.co.kr/news/articleView.html?idxno=170183">싸이월드사진출처</a>
+                <a href="https://www.news1.kr/articles/?1521877">카카오톡사진출처</a>
                 <p>본 자료들은 교육 및 단순 정보 제공 목적으로 사용되었습니다.</p>
             </div>
             <!-- 추가적인 source 항목들 -->
@@ -113,9 +137,8 @@
     <button onclick="goBack()" class="styled-button"><i class="fas fa-arrow-left"></i> 이전</button>
     </div>
     <div class="dropdown">
-        <a href="faq.html"><i class="fas fa-question-circle"></i>FAQ 및 연락처</a>
+        <a href="https://dahyesong1125.github.io/TImeCracker/faq.html"><i class="fas fa-question-circle"></i>FAQ 및 연락처</a>
     </div>
-
 </footer>
 </body>
 
