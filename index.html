@@ -16,8 +16,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="index.css">
     <style>
-        #consent-button:disabled {
+        #consent-button {
             cursor: not-allowed;
+        }
+        #consent-button.enabled {
+            cursor: pointer;
         }
     </style>
 </head>
@@ -76,7 +79,11 @@
         const updateConsentButtonState = () => {
             const allChecked = agreeCheckbox1.checked && agreeCheckbox2.checked;
             consentButton.disabled = !allChecked;
-            consentButton.style.cursor = allChecked ? 'pointer' : 'not-allowed';
+            if (allChecked) {
+                consentButton.classList.add('enabled');
+            } else {
+                consentButton.classList.remove('enabled');
+            }
         };
 
         agreeCheckbox1.addEventListener('change', updateConsentButtonState);
@@ -91,7 +98,6 @@
 
         // 초기 버튼 상태 비활성화
         consentButton.disabled = true;
-        consentButton.style.cursor = 'not-allowed';
     </script>
 </body>
 </html>
