@@ -36,6 +36,14 @@
                     <input type="checkbox" id="agree1">
                     <label for="agree1" class="korean-text">여러분의 멋진 시간여행이 시작됩니다! (필수 사항)</label>
                 </div>
+                <div class="consent">
+                    <input type="checkbox" id="agree2">
+                    <label for="agree2" class="korean-text">개인정보 보호정책 및 이용약관에 동의합니다. (필수 사항)</label>
+                </div>
+                <div class="optional-consent">
+                    <input type="checkbox" id="optional-consent">
+                    <label for="optional-consent" class="korean-text">사용자의 경험 향상을 위한 브라우저 쿠키 사용에 동의합니다. (선택사항)</label>
+                </div>
                 <button id="consent-button" class="korean-text">입장합니다!</button>
             </section>
         </main>
@@ -47,6 +55,7 @@
         const mainContent = document.querySelector('.main-content');
         const consentButton = document.getElementById('consent-button');
         const agreeCheckbox1 = document.getElementById('agree1');
+        const agreeCheckbox2 = document.getElementById('agree2');
 
         // 동영상이 끝나면 동영상 숨기고 메인 컨텐츠 보이기
         introVideo.addEventListener('ended', function() {
@@ -60,12 +69,15 @@
 
         // 이용약관에 동의해야만 동의 버튼 활성화
         agreeCheckbox1.addEventListener('change', function() {
-            consentButton.disabled = !agreeCheckbox1.checked;
+            consentButton.disabled = !(agreeCheckbox1.checked && agreeCheckbox2.checked);
+        });
+        agreeCheckbox2.addEventListener('change', function() {
+            consentButton.disabled = !(agreeCheckbox1.checked && agreeCheckbox2.checked);
         });
 
         // 동의 버튼 클릭 시 메인 페이지로 이동
         consentButton.addEventListener('click', function() {
-            if (agreeCheckbox1.checked) {
+            if (agreeCheckbox1.checked && agreeCheckbox2.checked) {
                 window.location.href = 'main.html';
             }
         });
