@@ -101,13 +101,13 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      margin: 40px; /* 섹션 크기를 키우기 위해 마진을 늘림 */
+      margin: 40px;
     }
 
     .gallery img {
-      width: 300px; /* 이미지 크기를 키움 */
-      height: 300px; /* 이미지 크기를 키움 */
-      margin: 15px; /* 이미지 간 간격을 조금 더 키움 */
+      width: 300px;
+      height: 300px;
+      margin: 15px;
       cursor: pointer;
       border: 2px solid white;
       border-radius: 10px;
@@ -161,7 +161,7 @@
 
     .modal img {
       max-width: 100%;
-      max-height: 80vh; /* 화면 높이에 맞게 */
+      max-height: 80vh;
       object-fit: contain;
       border-radius: 10px;
     }
@@ -176,12 +176,12 @@
 
     .content {
       min-height: 100vh;
-      padding-bottom: 60px; /* 푸터 높이만큼 패딩 추가 */
+      padding-bottom: 60px;
       box-sizing: border-box;
     }
 
     .background-section {
-      margin: 40px; /* 섹션 간격을 위해 마진 추가 */
+      margin: 40px;
       padding: 20px;
       background-color: rgba(0, 0, 0, 0.7);
       border-radius: 10px;
@@ -272,10 +272,10 @@
   </div>
 
   <div class="gallery">
-    <img src="fashion_1980/image .png" alt="Fashion 1">
-    <img src="fashion_1980/image (1).png" alt="Fashion 2">
-    <img src="fashion_1980/image (2).png" alt="Fashion 3">
-    <img src="fashion_1980/image (3).png" alt="Fashion 4">
+    <img src="fashion_1980/image.png" alt="Fashion 1" data-description="Fashion description 1">
+    <img src="fashion_1980/image (1).png" alt="Fashion 2" data-description="Fashion description 2">
+    <img src="fashion_1980/image (2).png" alt="Fashion 3" data-description="Fashion description 3">
+    <img src="fashion_1980/image (3).png" alt="Fashion 4" data-description="Fashion description 4">
   </div>
 
   <div class="background-section">
@@ -283,10 +283,10 @@
   </div>
 
   <div class="gallery">
-    <img src="fashion_1980/image (4).png" alt="Fashion 5">
-    <img src="fashion_1980/image (5).png" alt="Fashion 6">
-    <img src="fashion_1980/image (6).png" alt="Fashion 7">
-    <img src="fashion_1980/image (7).png" alt="Fashion 8">
+    <img src="fashion_1980/image (4).png" alt="Fashion 5" data-description="Fashion description 5">
+    <img src="fashion_1980/image (5).png" alt="Fashion 6" data-description="Fashion description 6">
+    <img src="fashion_1980/image (6).png" alt="Fashion 7" data-description="Fashion description 7">
+    <img src="fashion_1980/image (7).png" alt="Fashion 8" data-description="Fashion description 8">
   </div>
 </div>
 
@@ -316,9 +316,9 @@
 
   galleryImages.forEach(function(image, index) {
     image.addEventListener("click", function() {
-      modal.style.display = "flex"; /* flex로 변경하여 설명과 이미지를 나란히 배치 */
+      modal.style.display = "flex";
       modalImg.src = this.src;
-      captionText.innerHTML = "여기에 설명이 들어갑니다. 사진 " + (index + 1);
+      captionText.innerHTML = this.getAttribute('data-description');
     });
   });
 
