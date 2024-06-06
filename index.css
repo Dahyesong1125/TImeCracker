@@ -4,9 +4,10 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: 'Orbitron', sans-serif;
-    background-color: #211f3d; /* 몽환적이고 우주적인 색상 */
-    background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%); /* 배경 이미지 */
+    background-color: #211f3d;
+    background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%);
     color: white;
+    overflow: hidden; /* 동영상 재생 중 스크롤 방지 */
 }
 #video-container {
     position: fixed;
@@ -14,7 +15,7 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 9999; /* Ensure video is on top */
+    z-index: 9999; /* 동영상이 최상단에 표시되도록 설정 */
     background: black;
 }
 
@@ -22,6 +23,10 @@ body, html {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+#main-content-container {
+    display: none; /* 처음에는 숨김 */
 }
 
 .container {
@@ -54,8 +59,9 @@ body, html {
     justify-content: center;
     align-items: center;
     opacity: 0; 
-    transition: opacity 2.5s;
+    transition: opacity 2s;
 }
+
 .main-content.visible {
     opacity: 1; 
 }
@@ -151,48 +157,9 @@ body, html {
     color: #aaa;
 }
 
-.styled-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 10px 2px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 5px;
-}
-
-.form-group input,
 .form-group textarea {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    resize: none;
+    height: 100px;
 }
-
-.form-group input::placeholder {
-    color: #aaa;
-}
-
-.form-group textarea {
-    resize: none; /* Disable resizing */
-    height: 100px; /* Set a fixed height */
-}
-
-
 
 
