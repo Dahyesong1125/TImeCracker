@@ -8,6 +8,21 @@ body, html {
     background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%); /* 배경 이미지 */
     color: white;
 }
+#video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999; /* Ensure video is on top */
+    background: black;
+}
+
+#video-container video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
 .container {
     display: flex;
@@ -38,6 +53,9 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.main-content.visible {
+    opacity: 1; 
 }
 
 .terms {
