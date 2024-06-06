@@ -87,6 +87,24 @@
         footer .dropdown:hover i {
             animation: rotate 1.0s;
         }
+
+        .back-button {
+            display: inline-block;
+        }
+
+        .back-button button {
+            background-color: black;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .back-button button i {
+            margin-right: 5px;
+        }
     </style>
 </head>
 <body>
@@ -136,5 +154,10 @@
     <button onclick="goBack()" class="styled-button"><i class="fas fa-arrow-left"></i> 이전</button>
     </div>
 </footer>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 </body>
 </html>
