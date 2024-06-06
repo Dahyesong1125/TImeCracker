@@ -6,6 +6,82 @@
     <title>FAQ 및 연락처</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="index.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background-color: #211f3d;
+            background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%);
+            color: white;
+            overflow: hidden; /* 동영상 재생 중 스크롤 방지 */
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            text-align: center;
+        }
+        .header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 1; /* 초기값을 1로 설정 */
+            transition: opacity 5s;
+        }
+        .terms {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+        }
+        .terms h2 {
+            margin-bottom: 10px;
+        }
+        .contact {
+            margin-top: 20px;
+        }
+        .faq-item {
+            margin-bottom: 15px;
+        }
+        .styled-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+        }
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
