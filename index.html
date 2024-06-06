@@ -8,9 +8,15 @@
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    <div class="container">
+    <div id="video-container">
+        <video id="intro-video" autoplay muted>
+            <source src="media/kakaotalk_1717650346724.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div id="main-content-container" class="container">
         <header class="header">
-        <h1>TimeCracker</h1>
+            <h1>TimeCracker</h1>
         </header>
         <main class="main-content">
             <section class="terms">
@@ -30,22 +36,36 @@
         </main>
     </div>
     <script>
-        // Ensure consent button is only enabled when terms are agreed
+        const introVideo = document.getElementById('intro-video');
+        const videoContainer = document.getElementById('video-container');
+        const mainContentContainer = document.getElementById('main-content-container');
+        const mainContent = document.querySelector('.main-content');
         const consentButton = document.getElementById('consent-button');
         const agreeCheckbox = document.getElementById('agree');
 
+        // 동영상이 끝나면 동영상 숨기고 메인 컨텐츠 보이기
+        introVideo.addEventListener('ended', function() {
+            videoContainer.style.display = 'none';
+            mainContentContainer.style.display = 'flex';
+            setTimeout(() => {
+                mainContent.classList.add('visible');
+            }, 100); 
+            document.body.style.overflow = 'auto'; // 동영상 끝난 후 스크롤 가능하게 하기
+        });
+
+         // 이용약관에 동의해야만 동의 버튼 활성화
         agreeCheckbox.addEventListener('change', function() {
             consentButton.disabled = !agreeCheckbox.checked;
         });
 
-        // Redirect to main page on consent
+        // 동의 버튼 클릭 시 메인 페이지로 이동
         consentButton.addEventListener('click', function() {
             if (agreeCheckbox.checked) {
                 window.location.href = 'main.html';
             }
         });
 
-        // Initialize button state
+        // 초기 버튼 상태 비활성화
         consentButton.disabled = true;
     </script>
 </body>
