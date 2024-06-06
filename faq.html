@@ -118,10 +118,10 @@
                     <p class="korean-text">Email: support@timecracker.com</p>
                     <p class="korean-text">전화: 123-456-7890</p>
                 </section>
-               <section class="contact">
+                <section class="contact">
                     <h2 class="korean-text">소셜 미디어</h2>
-                    <p class="korean-text"><a href="https://instagram.com/timecracker_" target="_blank">인스타그램: instagram.com/timecracker_</p>
-               </section>
+                    <p class="korean-text"><a href="https://instagram.com/timecracker_" target="_blank">인스타그램: instagram.com/timecracker_</a></p>
+                </section>
                 <div class="back-button">
                     <button onclick="goBack()" class="styled-button korean-text"><i class="fas fa-arrow-left"></i> 이전</button>
                 </div>
@@ -133,8 +133,19 @@
     </div>
 
     <script>
+        // 페이지 로드 시 현재 URL을 세션 스토리지에 저장
+        window.onload = function() {
+            sessionStorage.setItem('lastPage', window.location.href);
+        };
+
+        // goBack 함수 수정
         function goBack() {
-            window.history.back();
+            var lastPage = sessionStorage.getItem('lastPage');
+            if (lastPage && document.referrer.startsWith(window.location.origin)) {
+                window.history.back();
+            } else {
+                window.location.href = 'main.html'; // 또는 원하시는 다른 페이지로 설정하세요
+            }
         }
     </script>
 </body>
