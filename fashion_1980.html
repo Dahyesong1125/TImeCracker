@@ -8,227 +8,218 @@
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-body, html {
-  height: 100%;
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background-color: #211f3d;
-  background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%);
-  color: white;
-}
+    body, html {
+      height: 100%;
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #211f3d;
+      background-image: radial-gradient(circle, #211f3d 0%, #0e101a 100%);
+      color: white;
+    }
 
-header, nav {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-}
+    header, nav {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+    }
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-a { text-decoration:none }
+    a { text-decoration: none; }
 
-.dropdown {
-  position: relative;
-  display: inline-block;
-  margin-right: 20px;
-}
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      margin-right: 20px;
+    }
 
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.9);
-  min-width: 100px;
-  z-index: 1;
-  font-size: 15px;
-  text-align: left;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.9);
+      min-width: 100px;
+      z-index: 1;
+      font-size: 15px;
+      text-align: left;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
 
-.dropdown:hover .dropdown-content {
-  display: block;
-}
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
 
-.dropdown-content a {
-  color: white;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  transition: background-color 0.3s;
-}
+    .dropdown-content a {
+      color: white;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s;
+    }
 
-.dropdown-content a:hover {
-  background-color: #555;
-}
+    .dropdown-content a:hover {
+      background-color: #555;
+    }
 
-.dropdown i {
-  margin-right: 5px;
-}
+    .dropdown i {
+      margin-right: 5px;
+    }
 
-.dropdown:hover i {
-  animation: rotate 1.0s;
-}
+    .dropdown:hover i {
+      animation: rotate 1.0s;
+    }
 
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
 
-.history-section {
-  background-color: rgba(0, 0, 0, 0.7);
-  padding: 4px;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  justify-content: space-between;
-}
+    .history-section {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 4px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      justify-content: space-between;
+    }
 
-.history-section div {
-  flex: 1;
-  margin: 0 10px;
-}
+    .history-section div {
+      flex: 1;
+      margin: 0 10px;
+    }
 
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 40px;
-}
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 40px;
+    }
 
-.gallery img {
-  width: 300px;
-  height: 300px;
-  margin: 15px;
-  cursor: pointer;
-  border: 2px solid white;
-  border-radius: 10px;
-  transition: transform 0.3s;
-  object-fit: cover;
-}
+    .gallery img {
+      width: 300px;
+      height: 300px;
+      margin: 15px;
+      cursor: pointer;
+      border: 2px solid white;
+      border-radius: 10px;
+      transition: transform 0.3s;
+      object-fit: cover;
+    }
 
-.gallery img:hover {
-  transform: scale(1.1);
-}
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
 
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.9);
-  justify-content: center;
-  align-items: center;
-}
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 100;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
 
-.modal-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 5% auto;
-  padding: 20px;
-  width: 80%;
-  max-width: 900px;
-  background-color: #111;
-  border: 1px solid #888;
-  border-radius: 10px;
-}
+    .modal-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 5% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 900px;
+      background-color: #111;
+      border: 1px solid #888;
+      border-radius: 10px;
+    }
 
-.close {
-  position: absolute;
-  top: 10px;
-  right: 25px;
-  color: #fff;
-  font-size: 35px;
-  font-weight: bold;
-  cursor: pointer;
-}
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      color: #fff;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
 
-.close:hover,
-.close:focus {
-  color: #bbb;
-  text-decoration: none;
-  cursor: pointer;
-}
+    .close:hover,
+    .close:focus {
+      color: #bbb;
+      text-decoration: none;
+      cursor: pointer;
+    }
 
-.modal img {
-  max-width: 100%;
-  max-height: 60vh;
-  object-fit: contain;
-  border-radius: 10px;
-}
+    .modal img {
+      max-width: 100%;
+      max-height: 60vh;
+      object-fit: contain;
+      border-radius: 10px;
+    }
 
-.description {
-  width: 100%;
-  margin-top: 20px;
-  font-size: 18px;
-  color: #ddd;
-  text-align: center;
-}
+    .description {
+      width: 100%;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #ddd;
+      text-align: center;
+    }
 
-.content {
-  min-height: 100vh;
-  padding-bottom: 60px;
-  box-sizing: border-box;
-}
+    .content {
+      min-height: 100vh;
+      padding-bottom: 60px;
+      box-sizing: border-box;
+    }
 
-.background-section {
-  margin: 40px;
-  padding: 20px;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  text-align: center;
-  font-size: 18px;
-  line-height: 1.6;
-}
+    .background-section {
+      margin: 40px;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
+    }
 
-footer {
-  background-color: rgba(0, 0, 0, 0.7);
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
+    footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
 
-footer .dropdown {
-  margin-right: 20px;
-  display: inline-block;
-}
+    footer .dropdown {
+      margin-right: 20px;
+      display: inline-block;
+    }
 
-footer .dropdown a {
-  color: white;
-  text-decoration: none;
-}
+    footer .dropdown a {
+      color: white;
+      text-decoration: none;
+    }
 
-footer .dropdown i {
-  margin-right: 5px;
-}
+    footer .dropdown i {
+      margin-right: 5px;
+    }
 
-footer .dropdown:hover i {
-  animation: rotate 1.0s;
-}
-
-    
-
+    footer .dropdown:hover i {
+      animation: rotate 1.0s;
     }
   </style>
 </head>
 <body link="white" vlink="white">
-
 <header>
   <h1><a href="main.html">TimeCracker</a></h1>
 </header>
@@ -266,30 +257,27 @@ footer .dropdown:hover i {
 </nav>
 <div class="history-section">
   <div>
-    <span style="color: #c9efcd;><i class="fas fa-tshirt"></i> Fashion</span>
+    <span style="color: #c9efcd;"><i class="fas fa-tshirt"></i> Fashion</span>
   </div>
   <div>
-    <span style="color: #c9efcd;>1980년</span>
+    <span style="color: #c9efcd;">1980년</span>
   </div>
 </div>
 <div class="content">
-<div class="background-section korean-text">
+  <div class="background-section korean-text">
     1980년대는 패션의 <span style="color: #c9efcd;">변화와 혁신</span>이 두드러진 시기였습니다. 이 시기에는 대담한 색상, 독특한 패턴, 그리고 새로운 실루엣이 대중화되었습니다.<br>
     많은 사람들이 <span style="color: #c9efcd;">개성을 표현</span>하기 위해 패션을 활용했으며, 이는 오늘날에도 영향을 미치고 있습니다.
-</div>
-
+  </div>
   <div class="gallery">
-    <img src="fashion_1980/image .png" alt="Fashion 1" data-description="1980년대 한국에서는 일본풍 패션이 큰 인기를 끌었습니다. 사진 속 모델은 짧은 바지와 스트라이프 셔츠, 컬러풀한 자켓을 입고 있는데, 이는 당시 일본의 스트리트 패션 영향을 받은 스타일입니다. 발목까지 오는 양말과 운동화는 편안하면서도 독특한 일본 패션의 특징을 잘 보여줍니다.">
+    <img src="fashion_1980/image.png" alt="Fashion 1" data-description="1980년대 한국에서는 일본풍 패션이 큰 인기를 끌었습니다. 사진 속 모델은 짧은 바지와 스트라이프 셔츠, 컬러풀한 자켓을 입고 있는데, 이는 당시 일본의 스트리트 패션 영향을 받은 스타일입니다. 발목까지 오는 양말과 운동화는 편안하면서도 독특한 일본 패션의 특징을 잘 보여줍니다.">
     <img src="fashion_1980/image (1).png" alt="Fashion 2" data-description="1980년대 후반 한국에서는 스포츠웨어 패션이 큰 인기를 끌었습니다. 사진 속 인물들은 컬러풀한 운동복을 입고 있으며, 이는 당시의 활동적이고 건강한 라이프스타일을 반영합니다. 특히, 비비드한 색상과 대담한 디자인이 특징인 트랙수트와 운동복은 그 시대의 대표적인 패션 아이템이었습니다.">
     <img src="fashion_1980/image (2).png" alt="Fashion 3" data-description="1980년대 한국에서는 레깅스가 큰 인기를 끌었습니다. 사진 속 모델들은 화려한 색상의 레깅스를 착용하고 있으며, 이는 당시의 패션 트렌드를 잘 보여줍니다. 레깅스는 다양한 색상과 디자인으로 출시되어 활동성과 스타일을 동시에 강조한 아이템이었습니다. 헤어밴드와 같은 액세서리도 함께 착용하여 패션을 완성했습니다.">
     <img src="fashion_1980/image (3).png" alt="Fashion 4" data-description="1980년대 한국에서는 강렬한 색상의 옷과 청바지가 큰 인기를 끌었습니다. 사진 속 모델은 빨간색 셔츠와 청색 벨바텀 팬츠를 입고 있으며, 이는 당시 패션 트렌드의 대표적인 스타일입니다. 또한 선글라스와 같은 액세서리도 유행하며 강렬한 개성을 표현하는 데 사용되었습니다. 이러한 스타일은 1980년대의 자유롭고 대담한 패션 감각을 잘 보여줍니다.">
   </div>
-
-<div class="background-section korean-text">
+  <div class="background-section korean-text">
     1980년대의 패션은 <span style="color: #c9efcd;">강렬한</span> 메이크업, 큰 액세서리, 그리고 <span style="color: #c9efcd;">과장된</span> 헤어스타일로도 유명했습니다. <br>
-    디스코와 펑크 문화의 영향으로 많은 사람들이 <span style="color: #c9efcd;">자신만의 스타일</span>을 만들어갔으며,이는 패션의 <span style="color: #c9efcd;">다양성</span>과 <span style="color: #c9efcd;">창의성</span>을 더욱 부각시켰습니다.
-</div>
-
+    디스코와 펑크 문화의 영향으로 많은 사람들이 <span style="color: #c9efcd;">자신만의 스타일</span>을 만들어갔으며, 이는 패션의 <span style="color: #c9efcd;">다양성</span>과 <span style="color: #c9efcd;">창의성</span>을 더욱 부각시켰습니다.
+  </div>
   <div class="gallery">
     <img src="fashion_1980/image (4).png" alt="Fashion 5" data-description="1980년대 한국에서는 컬러풀한 옷과 독특한 스타일링이 유행했습니다. 사진 속 모델들은 밝은 색상의 셔츠와 스웨터를 레이어드하여 입고 있으며, 넥타이와 스카프를 포인트로 활용하고 있습니다. 이러한 스타일은 개성을 표현하는 데 중점을 두었고, 다채로운 색상과 패턴이 조화를 이루어 당시의 활기찬 패션 문화를 반영합니다.">
     <img src="fashion_1980/image (5).png" alt="Fashion 6" data-description="1980년대 한국에서는 운동화 브랜드가 큰 인기를 끌었습니다. 사진 속 광고는 리복, 아디다스, 나이키 등의 유명 브랜드 운동화를 소개하고 있으며, 이는 당시 젊은이들 사이에서 운동화가 필수 패션 아이템으로 자리 잡았음을 보여줍니다. 이러한 운동화는 편안함과 스타일을 동시에 제공하여 일상 생활뿐만 아니라 스포츠 활동에서도 널리 착용되었습니다.">
@@ -297,7 +285,6 @@ footer .dropdown:hover i {
     <img src="fashion_1980/image (7).png" alt="Fashion 8" data-description="1980년대 한국에서는 독특한 실루엣과 대담한 컬러 조합이 특징이었습니다. 사진 속 모델들은 청재킷과 흰색 바지, 와이드 팬츠와 스웨터를 매치하여 당시 유행하던 오버사이즈 룩을 연출하고 있습니다. 특히, 셔츠 안에 타이를 매치하는 등 다양한 스타일링 요소를 통해 개성을 표현하는 것이 일반적이었습니다. 이러한 패션은 개성과 창의성을 중시했던 1980년대 청소년들의 스타일을 잘 보여줍니다.">
   </div>
 </div>
-
 <div id="myModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
@@ -305,19 +292,17 @@ footer .dropdown:hover i {
     <div class="description korean-text">여기에 설명이 들어갑니다.</div>
   </div>
 </div>
-
 <footer>
   <div class="dropdown">
     <a href="main.html"><i class="fas fa-home"></i>홈으로 돌아가기</a>
   </div>
   <div class="dropdown">
-    <a href="faq.html""><i class="fas fa-question-circle"></i>FAQ 및 연락처</a>
+    <a href="faq.html"><i class="fas fa-question-circle"></i>FAQ 및 연락처</a>
   </div>
   <div class="dropdown">
     <a href="copyright_fashion.html"><i class="fas fa-pen"></i>자료 출처</a>
   </div>
 </footer>
-
 <script>
   var modal = document.getElementById("myModal");
   var modalImg = modal.querySelector("img");
@@ -337,6 +322,5 @@ footer .dropdown:hover i {
     modal.style.display = "none";
   }
 </script>
-
 </body>
 </html>
