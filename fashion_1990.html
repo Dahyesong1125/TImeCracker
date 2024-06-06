@@ -272,10 +272,10 @@
   </div>
 
   <div class="gallery">
-    <img src="fashion_1990/image.png" alt="Fashion 1">
-    <img src="fashion_1990/image (1).png" alt="Fashion 2">
-    <img src="fashion_1990/image (2).png" alt="Fashion 3">
-    <img src="fashion_1990/image (3).png" alt="Fashion 4">
+    <img src="fashion_1990/image.png" alt="Fashion 1" data-description="Fashion description 1">
+    <img src="fashion_1990/image (1).png" alt="Fashion 2" data-description="Fashion description 2">
+    <img src="fashion_1990/image (2).png" alt="Fashion 3" data-description="Fashion description 3">
+    <img src="fashion_1990/image (3).png" alt="Fashion 4" data-description="Fashion description 4">
   </div>
 
   <div class="background-section">
@@ -283,10 +283,10 @@
   </div>
 
   <div class="gallery">
-    <img src="fashion_1990/image (4).png" alt="Fashion 5">
-    <img src="fashion_1990/image (5).png" alt="Fashion 6">
-    <img src="fashion_1990/image (6).png" alt="Fashion 7">
-    <img src="fashion_1990/image (7).png" alt="Fashion 8">
+    <img src="fashion_1990/image (4).png" alt="Fashion 5" data-description="Fashion description 5">
+    <img src="fashion_1990/image (5).png" alt="Fashion 6" data-description="Fashion description 6">
+    <img src="fashion_1990/image (6).png" alt="Fashion 7" data-description="Fashion description 7">
+    <img src="fashion_1990/image (7).png" alt="Fashion 8" data-description="Fashion description 8">
   </div>
 </div>
 
@@ -318,7 +318,7 @@
     image.addEventListener("click", function() {
       modal.style.display = "flex"; /* flex로 변경하여 설명과 이미지를 나란히 배치 */
       modalImg.src = this.src;
-      captionText.innerHTML = "여기에 설명이 들어갑니다. 사진 " + (index + 1);
+      captionText.innerHTML = this.getAttribute('data-description');
     });
   });
 
