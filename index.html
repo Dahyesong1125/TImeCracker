@@ -15,6 +15,11 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="index.css">
+    <style>
+        #consent-button:disabled {
+            cursor: not-allowed;
+        }
+    </style>
 </head>
 <body>
     <div id="video-container">
@@ -68,12 +73,14 @@
         });
 
         // 이용약관에 동의해야만 동의 버튼 활성화
-        agreeCheckbox1.addEventListener('change', function() {
-            consentButton.disabled = !(agreeCheckbox1.checked && agreeCheckbox2.checked);
-        });
-        agreeCheckbox2.addEventListener('change', function() {
-            consentButton.disabled = !(agreeCheckbox1.checked && agreeCheckbox2.checked);
-        });
+        const updateConsentButtonState = () => {
+            const allChecked = agreeCheckbox1.checked && agreeCheckbox2.checked;
+            consentButton.disabled = !allChecked;
+            consentButton.style.cursor = allChecked ? 'pointer' : 'not-allowed';
+        };
+
+        agreeCheckbox1.addEventListener('change', updateConsentButtonState);
+        agreeCheckbox2.addEventListener('change', updateConsentButtonState);
 
         // 동의 버튼 클릭 시 메인 페이지로 이동
         consentButton.addEventListener('click', function() {
@@ -84,6 +91,7 @@
 
         // 초기 버튼 상태 비활성화
         consentButton.disabled = true;
+        consentButton.style.cursor = 'not-allowed';
     </script>
 </body>
 </html>
